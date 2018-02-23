@@ -14,6 +14,7 @@ body {
     padding: 0;
     line-height: 1.75;
 }
+
 a.offsite:link, .offsite {padding-right: 12px;background: transparent url("images/aoutside.gif") no-repeat 100%;white-space: nowrap;}
 
 .iconlist{list-style: none;margin: 0px;padding: 0px;}
@@ -24,9 +25,15 @@ a.offsite:link, .offsite {padding-right: 12px;background: transparent url("image
 .notificationPreferences table td { font: 83%/1.5 arial,tahoma,verdana,sans-serif; }
 
 /* LINKS */
-a,a:link,a:link,a:link,a:hover {background:transparent;text-decoration:none;color:#666666;cursor:pointer} 
-a:link, a:visited {color:#666666} 
-a:hover,a:active {color:#069} 
+a,a:link,a:visited {
+    background:transparent;
+    text-decoration:none;
+    color:#337ab7;
+} 
+a:hover,a:active {
+    color: #990000;
+    text-decoration: underline;
+} 
 
 /* FORMS */
 form {margin: 0 0 1.5em}
@@ -206,13 +213,24 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 .clear {clear:both;position:relative;font-size:0px;height:0px;line-height:0px} 
 
 /* LAYOUT - HEADER */
-#header {background-color: #efefef; border-left: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC; border-top: 5px solid #000066;border-bottom: 5px solid #000066;margin: 0 0 25px;padding: 6px 0 0 2px}
+#header {
+    background-color: rgba(16,14,15,.85);
+    padding: 15px 30px; 
+}
 #header #site-name {font: 265% arial;letter-spacing: -.05em;margin:0px 0 0 40px;padding:3px;color:#000066;border:none}
-#header #title-name {font: 265% arial;letter-spacing: -.05em;margin:0px 0 0 40px;padding:3px;color:#000066;border:none}
+#header #title-name {
+    text-shadow: 0px 2px 6px rgba(0, 0, 0,0.85);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 200;
+}
+#header #title-name a, #header #title-name a:hover {
+    color: #fff;
+}
 #header #user-name {font: 100% ariel;margin:0px 0 0 0;padding:3px;color:#333333;border:none}
 	
 /* SEARCH */
-#search {color:#000066;font-weight:bold;position:absolute;top:17px;right:10px}
+#search {color:#000066;font-weight:bold;}
 #search form {margin:0 0 5px 0}
 #search input.f-criteria {width:8em;margin: 0 0 -1px;height:1.6em}	
 #search label {padding:5px 0 0;display:inline}
