@@ -1,12 +1,19 @@
 /*
 LEGAL
 =====
-Copyright © 2015 Atlas Systems, Inc. All rights reserved.
+Copyright ï¿½ 2015 Atlas Systems, Inc. All rights reserved.
 */
 
 * {margin:0;padding:0}
-body {padding: 0 0 20px;color:#333;font:83%/1.5 arial,tahoma,verdana,sans-serif}
 
+body {
+    background: #fff 0% 0%;
+    font-family: 'Open Sans', Arial, sans-serif;
+    color: #000;
+    font-size: 15px;
+    padding: 0;
+    line-height: 1.75;
+}
 a.offsite:link, .offsite {padding-right: 12px;background: transparent url("images/aoutside.gif") no-repeat 100%;white-space: nowrap;}
 
 .iconlist{list-style: none;margin: 0px;padding: 0px;}
