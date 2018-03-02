@@ -404,13 +404,36 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 /* DEFAULT TABLE */
 
 .default-table {width:100%}
-.default-table table {border: 1px solid #000066;font: 75%/1.5em arial, geneva, sans-serif;border-collapse:collapse;}
-.default-table tbody td {font-size: 100%;letter-spacing: 0.05em;}
-.default-table tbody td, th {border-left: 1px solid #000066;vertical-align: top;padding: 5px;}
+.default-table table {
+    border-collapse:collapse;
+}
+.default-table tbody td {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+}
+.default-table tbody td, th {
+    vertical-align: top;
+    padding: 5px;
+}
 .default-table thead tr {background: #efefef;color:#000;}
-.default-table thead tr.row-header {background: #000066;color: #fff;}
-.default-table thead tr.row-headings {border-bottom: 1px solid #000066;}
-.default-table thead th {padding: 5px 5px;text-align: left;letter-spacing: 0.2em;font-weight: bold;font-size: 110%}
+.default-table thead tr.row-header {
+    background-color: inherit;
+    color: #333;
+    font-size: 18px;
+}
+.default-table thead tr.row-headings {
+    border-bottom: 1px solid #DADADA;
+}
+.default-table thead th {
+    padding: 5px 5px;
+    text-align: left;
+    font-weight: normal;
+    border-bottom: 1px solid #DADADA;
+}
+.default-table thead tr.row-headings th {
+    font-weight: bold;
+    font-size: 14px;
+}
 .default-table tbody th {padding: 5px 5px 5px 5px;text-align: left;font-size: 110%;color: #fff;letter-spacing: 0.1em;line-height: 1.5em;text-transform: uppercase;}	
 .default-table tbody tr.row-odd th {background: #efefef;}
 .default-table tbody tr.row-odd {background: #efefef;}
