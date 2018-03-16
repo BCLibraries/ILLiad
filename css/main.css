@@ -357,6 +357,10 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
     color: #fff;
 }
 #header #user-name {font: 100% ariel;margin:0px 0 0 0;padding:3px;color:#333333;border:none}
+
+#user-name { 
+    float: right;
+}
 	
 /* SEARCH */
 #search {
