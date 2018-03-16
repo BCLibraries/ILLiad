@@ -65,8 +65,18 @@ input.f-submit.defaultButton {
 /* FORMS - f-wrap-1 - simple form, headings on left, form elements on right */
 form.f-wrap-1 {width:100%;padding: .5em 0;background: #f6f6f6;border-top: 1px solid #d7d7d7;position:relative}
 form.f-wrap-1 fieldset {width:auto;margin: 0 1em}
-form.f-wrap-1 h3 {margin:0 0 .6em;font: bold 155% arial;color:#c00}
-form.f-wrap-1 label {clear:left;float:left;width:100%;border-top: 1px solid #fff}
+form.f-wrap-1 h3 {
+    margin:0 0 .6em;
+    font-size: 1.25em;
+    font-weight: normal;
+    border-bottom: none;
+}
+form.f-wrap-1 label {
+    clear:left;
+    float:left;
+    width:100%;
+    border-top: none;
+}
 
 /* hide from IE mac \*/
 form.f-wrap-1 label {float:none}
@@ -75,6 +85,10 @@ form.f-wrap-1 label {float:none}
 form.f-wrap-1 label input, form.f-wrap-1 label textarea, form.f-wrap-1 label select {width:15em;float:left;margin-left:10px}
 
 form.f-wrap-1 label .field {float:left;width:8em;line-height: 1.7;display:block;position:relative}
+form.f-wrap-1 label .field b {
+    float: right;
+    text-align: right;
+}
 form.f-wrap-1 label .field .note {color:#333333;font-size:80%;font-weight:normal}
 form.f-wrap-1 label .field .req {color:#c00;font-size:150%;font-weight:normal;position:absolute;top:-.1em;line-height:1em;left:-.4em;width:.3em;height:.3em}		
 
