@@ -470,7 +470,21 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 #transactionMenu a:hover, #transactionMenu a:active {background-color: #efefef}
 #transactionMenu .separator {color:ccc;margin-left:5px;margin-right:5px}
 #transactionMenu .noActionMessage {color:#999;font-weight:normal;line-height:2em;padding:.3em}
-	
+/* LAYOUT TYPE A */
+
+#type-a #content {
+    width:100%;
+}
+
+#type-a #content form.f-wrap-1 {
+    width: 50%;
+    margin: 0 auto;
+}
+
+#type-a #content a {
+    text-align: center;
+    display: block;
+}
 /* LAYOUT TYPE B */
 #type-b #content-wrap {background: transparent url("images/content_wrap_bg.gif") repeat-y 30px 0}
 #type-b #content {margin: 0 auto}
