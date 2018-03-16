@@ -42,14 +42,24 @@ input {
 }
 fieldset {border: none}
 label {display:block;padding: 5px 0}
-label br {clear:left}
+label br {
+    clear:left;
+    line-height: 0;
+}
 
 /* FORMS - general classes */
 input.f-submit {
-    padding: 2px 4px;
+    padding: 6px 10px;
     color: #333;
     background-color: #e6e6e6;
     border: 1px solid #adadad;
+    border-radius: 2px;
+}
+
+input.f-submit.defaultButton {
+    background-color: #3689e6;
+    color: #fff;
+    font-weight: bold;
 }
 	
 /* FORMS - f-wrap-1 - simple form, headings on left, form elements on right */
@@ -115,31 +125,129 @@ form.f-wrap-2 label span.errormsg {position:absolute;top:0;right:-10em;left:auto
 form.f-wrap-2 label span.errormsg b {padding: 10px 0;margin: 0 10px 0 30px;color:#B30800;font-weight:bold;display:block;width:auto;float:none;line-height:1.3}	
 
 /* FORMS - f-wrap-request - simple form, headings on left, form elements on right */
-form.f-wrap-request {width:100%;padding: .5em 0;background: #f6f6f6;border-top: 1px solid #d7d7d7;position:relative}
+form.f-wrap-request {
+    width:100%;
+    padding: 1em;
+    background: #fafafa;
+    border-top: 2px solid #cacaca;
+    position:relative;
+}
 form.f-wrap-request fieldset {width:auto;margin: 0 1em}
-form.f-wrap-request h3 {margin:0 0 .6em;font: bold 155% arial;color:#c00}
-form.f-wrap-request h2 {margin:.6em 0 .6em;font: bold 155% arial;color:#000066}
-form.f-wrap-request label {clear:left;float:left;width:100%;border-bottom: 1px solid #fff}
+form.f-wrap-request h3 {
+    margin:0 0 .6em;
+    font-size: 1.75em;
+    color: #151515;
+    font-weight: normal;
+    letter-spacing: 0.2px;
+    border: none;
+}
+form.f-wrap-request h2 {
+    margin:.6em 0 .6em;
+    font-weight: bold;
+    color:#333;
+    font-size: 1.25em;
+    letter-spacing: 0.1px;
+    clear: both;
+}
+form.f-wrap-request label {
+    clear:left;
+    float:left;
+    width:100%;
+}
 
 /* hide from IE mac \*/
 form.f-wrap-request label {float:none}
 /* end hiding from IE5 mac */
 
-form.f-wrap-request label input, form.f-wrap-request label textarea, form.f-wrap-request label select {width:35%;float:left;margin-left:10px}
+form.f-wrap-request label input, form.f-wrap-request label textarea, form.f-wrap-request label select {
+    width:50%;
+    float:left;
+    margin-left:10px;
+    font-size: 14px;
+    color: #333;
+}
 
-form.f-wrap-request label b {float:left;width:60%;line-height: 1.7;display:block;position:relative}
-form.f-wrap-request label b .note {color:#333333;font-size:80%;font-weight:normal}
-form.f-wrap-request label b .req {color:#c00;font-size:150%;font-weight:normal;position:absolute;top:-.1em;line-height:1em;left:-.4em;width:.3em;height:.3em}
+form.f-wrap-request label b {
+    float:right;
+    line-height: 1;
+    display:block;
+    position:relative;
+    font-size: 14px;
+    color: #333;
+    text-align: right;
+    padding-right: 1em;
+}
+form.f-wrap-request label .note {
+    color:#333333;
+    font-size:12px;
+    font-weight:normal;
+    margin-left: 1em;
+    float: left;
+    width: 50%;
+    line-height: 1.2;
+}
+form.f-wrap-request label b .req {
+    color:#c00;
+    font-size:150%;
+    font-weight:normal;
+    position:absolute;
+    top:-.1em;
+    line-height:1em;
+    right:.3em;
+    width:.3em;
+    height:.3em;
+}
 
-form.f-wrap-request label .field {float:left;width:60%;line-height: 1.7;display:block;position:relative}
-form.f-wrap-request label .field .note {color:#333333;font-size:80%;font-weight:normal}
-form.f-wrap-request label .field .req {color:#c00;font-size:150%;font-weight:bold;position:absolute;top:-.1em;line-height:1em;left:-.4em;width:.3em;height:.3em}
+form.f-wrap-request label .field {
+    float:left;
+    width:30%;
+    line-height: 1.7;
+    display:block;
+    position:relative;
+    padding-top: 0.3em;
+    margin-bottom: 2em;
+}
+form.f-wrap-request label .field .note {
+    color:#333333;
+    font-size:12px;
+    font-weight:normal;
+    text-align: right;
+    margin: 0;
+    padding: 0 1em 0 0;
+    float: right;
+    width: 100%;
+    line-height: 1.2;
+}
+form.f-wrap-request label .field .req {
+    color:#c00;
+    font-size:150%;
+    font-weight:bold;
+    position:absolute;
+    top:-.1em;
+    line-height:1em;
+    right:.3em;
+    width:.3em;
+    height:.3em}
 
-form.f-wrap-request div.req {color:#666;font-size:96%;font-weight:normal;position:absolute;top:.4em;right:.4em;left:auto;width:13em;text-align:right}
+form.f-wrap-request div.req {
+    color:#666;
+    font-size:96%;
+    font-weight:normal;
+    position:absolute;
+    top:.4em;
+    right:2em;
+    left:auto;
+    width:13em;
+    text-align:right}
 form.f-wrap-request div.req b {color:#c00;font-size:140%}
 form.f-wrap-request label select {width: 15.5em}
 form.f-wrap-request label textarea.f-comments {width: 20em}
-form.f-wrap-request div.f-submit-wrap {padding: 5px 0 5px 8em}
+form.f-wrap-request div.f-submit-wrap {
+    padding: 5px 0 5px 8em;
+    margin: 1em 18% 0 0;
+    }
+}
+
 form.f-wrap-request input.f-submit {margin: 0 0 0 10px}
 
 form.f-wrap-request fieldset.f-checkbox-wrap, form.f-wrap-request fieldset.f-radio-wrap {float:left;width:32em;border:none;margin:0;padding-bottom:.7em}
@@ -150,7 +258,7 @@ form.f-wrap-request label input.f-checkbox, form.f-wrap-request label input.f-ra
 
 form.f-wrap-request label span.errormsg {position:absolute;top:0;right:-10em;left:auto;display:block;width:16em;background: transparent url(images/errormsg_bg.gif) no-repeat 0 0}
 form.f-wrap-request label span.errormsg b {padding: 10px 0;margin: 0 10px 0 30px;color:#B30800;font-weight:bold;display:block;width:auto;float:none;line-height:1.3}
-		
+
 /* FORMS - f-wrap-detail - simple form, headings on left, form elements on right */
 form.f-wrap-detail {width:100%;padding: .5em 0;background: #f6f6f6;border-top: 1px solid #d7d7d7;position:relative}
 form.f-wrap-detail fieldset {width:auto;margin: 0 1em}
@@ -164,7 +272,13 @@ form.f-wrap-detail label {float:none}
 
 form.f-wrap-detail label input, form.f-wrap-detail label textarea, form.f-wrap-detail label select {width:35%;float:left;margin-left:10px}
 
-form.f-wrap-detail label b {float:left;width:60%;line-height: 1.7;display:block;position:relative}
+form.f-wrap-detail label b {
+    float:left;
+    width:60%;
+    line-height: 1.7;
+    display:block;
+    position:relative;
+}
 form.f-wrap-detail label b .note {color:#333333;font-size:80%;font-weight:normal}
 form.f-wrap-detail label b .req {color:#c00;font-size:150%;font-weight:normal;position:absolute;top:-.1em;line-height:1em;left:-.4em;width:.3em;height:.3em}
 form.f-wrap-detail div.req {color:#666;font-size:96%;font-weight:normal;position:absolute;top:.4em;right:.4em;left:auto;width:13em;text-align:right}
@@ -267,6 +381,7 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
     font-size:81%;
     margin:0 0 -.15em;
     height:2.2em;
+
 }
 
 #search #searchType {
@@ -283,7 +398,11 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 
 /* LAYOUT - main body of page */
 #wrap {min-width:770px;max-width:1200px;margin: 0 auto;position:relative}
-#content-wrap {position:relative;width:100%}
+#content-wrap {
+    margin-top: 3em;
+    position:relative;
+    width:100%
+}
 #utility {
     border-top: 0px solid #999;
     padding-bottom: 40px;
@@ -510,21 +629,27 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 #faq-contents .faq-item-box a {font-weight:bold}
 #faq-contents li {font-weight:normal;line-height: 1.4em;padding-left: 0px;background-image: url(/css/images/bullet.gif);background-repeat: no-repeat;} 
 
-#status {
-    margin:0px 0 0 40px;
-    padding:1em;
-    text-align: center;
-    color:#333333;
-    border:none;
-    font-size: 0.8em;
+#status .statusInformation, #status .statusError {  
+        margin:0 auto;
+        padding:1em;
+        text-align: center;
+        color:#333333;
+        border:none;
+        font-size: 0.8em;
+        border-radius: 6px;
+        width: 30%;
+        display: block;
 }
-#status .statusNormal {color:#333333}
+#status .statusNormal {
+    display: none;
+}
 #status .statusInformation {
     background-color: #fde073;
 }
 #status .statusError {
     background-color:#C6262E;
     color: #fff;
+    font-weight: bold;
 }
 
 .NLMDDSRequest {margin-bottom:20px}
