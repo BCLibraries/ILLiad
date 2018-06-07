@@ -1,7 +1,7 @@
 <#INCLUDE filename="include_lib_header.html">
 
 <div id="header">
-	<div id="title-name"><a href="<#ACTION action="10" form="10">">Interlibrary Loan</a></div>				
+	<div id="title-name"><a href='<#ACTION action="10" form="10">'>Interlibrary Loan</a></div>				
 	<div id="search">
 		<form action="illiad.dll" name="Search" method="post">
 			<input type="hidden" name="IlliadForm" value="Search" />
@@ -17,3 +17,6 @@
 		</form>
 	</div>
 </div>
+
+<div id="user-name"><a href='<#ACTION action="99">'>[ Sign out: <#USER field="FirstName"> <#USER field="LastName">]</a></div>
+
