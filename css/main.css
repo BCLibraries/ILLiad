@@ -674,6 +674,9 @@ hr {margin: 1em 0;background:#f2f2f2;height:1px;color:#f2f2f2;border:none;clear:
 #faq-contents .faq-item-box a {font-weight:bold}
 #faq-contents li {font-weight:normal;line-height: 1.4em;padding-left: 0px;background-image: url(/css/images/bullet.gif);background-repeat: no-repeat;} 
 
+#status {
+    margin-bottom: 1em;
+}
 #status .statusInformation, #status .statusError {  
         margin:0 auto;
         padding:1em;
