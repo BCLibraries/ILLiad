@@ -16,6 +16,7 @@
                 <div class="req"><b>*</b> Indicates required field</div>
                 <fieldset>
                     <h3>Loan Request</h3>
+<p>Request only one item per form. Delivery of interlibrary loan requests depends on the availability of interlibrary loan services at other institutions.</p>
                     <div id="status"><#STATUS></div>
                     <h2>Describe the item you want</h2>
                     <label for="LoanTitle">
@@ -97,26 +98,10 @@
                                 <option>Educational Resource Center</option>
                                 <option>Social Work Library</option>
                                 <option>Theology & Ministry Library</option>
+				<!--<option value="Pickup">Library pickup (Staff will contact you to schedule a pickup date)</option>-->
+				<option value="Remote User">Remote User (Staff will contact you)</option>
                             </select>
                             <br />
-                    </label>
-                    <label for="ItemInfo2">
-                        <span class="field">
-                            <span class="<#ERROR name=" ItemInfo2 ">"></span>
-                    
-                                <span class="valid">
-                                    <b>Should BC purchase this item?</b>
-                                </span>
-                                <br />
-                         </span>
-                                <select id="ItemInfo2" name="ItemInfo2" size="1" class="f-name">
-                                    <option Selected>
-                                        <#Param name="ItemInfo2">
-                                    </option>
-                                    <option>No</option>
-                                    <option>Yes</option>
-                                </select>
-                                <br />
                     </label>
                     <label for="CallNumber">					
                         <span class="field">
@@ -141,6 +126,13 @@
                         <br />
                     </label>
                     
+		<label for="ItemInfo4">
+                        <span class="field">
+                            <span class="<#ERROR name=" ItemInfo4 ">"><b>If this is a course required reading, please add the Course Code</b></span>
+                        </span>
+                        <input id="ItemInfo4" name="ItemInfo4" type="text" size="20" class="f-name" value="<#PARAM name="ItemInfo4">"><br />
+                    </label>
+
                     <label for="AcceptNonEnglish">
                         <span class="field">
                             <span class="<#ERROR name="ERRORAcceptNonEnglish">"><b>Will you accept the item in a language other than English?</b></span><br />
@@ -169,7 +161,7 @@
                             <span class="field">
                               <span class="<#ERROR name="ERRORCitedIn">"><b>Where did you find this item cited?</b></span><br />
                             </span>
-                            <textarea id="CitedIn" name="CitedIn" rows="2" cols="40" class="f-name" tabindex="13"><#PARAM name="CitedIn"></textarea>
+                            <textarea id="CitedIn" name="CitedIn" rows="2" cols="40" class="f-name"><#PARAM name="CitedIn"></textarea>
                             <span class="note">Examples: WorldCat, CINHAL, PsycInfo, Google, Amazon, etc.<!--Dissertation Abstracts, Dialog (specify which database), or a specific journal or book.--></span>
 
                             <br />

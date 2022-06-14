@@ -1,4 +1,4 @@
-/*
+﻿/*
 LEGAL
 =====
 Copyright � 2015 Atlas Systems, Inc. All rights reserved.
@@ -254,7 +254,7 @@ form.f-wrap-request div.req {
     width:13em;
     text-align:right}
 form.f-wrap-request div.req b {color:#c00;font-size:140%}
-form.f-wrap-request label select {width: 15.5em}
+form.f-wrap-request label select {width: 18em}
 form.f-wrap-request label textarea.f-comments {width: 20em}
 form.f-wrap-request div.f-submit-wrap {
     padding: 5px 0 5px 8em;

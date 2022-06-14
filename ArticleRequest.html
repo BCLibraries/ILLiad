@@ -16,6 +16,7 @@
                 <div class="req"><b>*</b> Indicates required field</div>
                 <fieldset>			
                     <h3>Copy Request</h3>
+<p>Request only one article or chapter per form. Delivery of interlibrary loan requests depends on the availability of interlibrary loan services at other institutions.</p>   
                     <div id="status"><#STATUS></div>
                     <h2>Describe the item you want</h2>
                     <label for="PhotoArticleTitle">
@@ -63,7 +64,11 @@
                     
                     <label for="PhotoJournalYear">
                         <span class="field">
+<<<<<<< Updated upstream
                             <span class="req">*</span>
+=======
+			    <span class="req">*</span>
+>>>>>>> Stashed changes
                             <span class="<#ERROR name="ERRORPhotoJournalYear">"><b>Year</b></span>
                         </span>
                         <input id="PhotoJournalYear" name="PhotoJournalYear" type="text" size="40" class="f-name" value="<#PARAM name="PhotoJournalYear">">
@@ -105,6 +110,13 @@
 
                     </label>
                     
+		<label for="ItemInfo4">
+                        <span class="field">
+                            <span class="<#ERROR name=" ItemInfo4 ">"><b>If this is a course required reading, please add the Course Code</b></span>
+                        </span>
+                        <input id="ItemInfo4" name="ItemInfo4" type="text" size="20" class="f-name" value="<#PARAM name="ItemInfo4">"><br />
+                    </label>
+
                     <label for="AcceptNonEnglish">
                         <span class="field">
                             <span class="<#ERROR name="ERRORAcceptNonEnglish">"><b>Will you accept the item in a language other than English?</b></span><br />
@@ -121,7 +133,7 @@
                             <span class="field">
                                 <span class="<#ERROR name="ERRORCitedIn">"><b>Where did you find this item cited?</b></span><br />
                             </span>
-                            <textarea id="CitedIn" name="CitedIn" rows="2" cols="40" class="f-name" tabindex="40"><#PARAM name="CitedIn"></textarea>
+                            <textarea id="CitedIn" name="CitedIn" rows="2" cols="40" class="f-name"><#PARAM name="CitedIn"></textarea>
                             <span class="note">Examples: WorldCat, CINHAL, PsycInfo, etc.<!--Dissertation Abstracts, Dialog (specify which database), or a specific journal or book.--></span>
                             <br />
                         </label>

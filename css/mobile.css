@@ -8,6 +8,14 @@
     {
         font: 80%/1.5 arial,tahoma,verdana,sans-serif;
     }
+    #type-a #content form.f-wrap-1
+    {
+	width:80%
+    }
+    div#logonform 
+    {
+	font-size: 1.5em;
+    }
     
     /* FORMS */
     input.f-submit
@@ -23,13 +31,23 @@
     
     form.f-wrap-1 label input, form.f-wrap-1 label textarea, form.f-wrap-1 label select
     {
-        width: 182px;
+        width: 100%;
+	margin-left: auto;
+	font-size: 1em;
+	line-height:1.2em;
     }
     
     form.f-wrap-1 label .field
     {
         /* TODO: The line height declaration was excluded; everything else was the same */
+	width: auto;
     }
+
+    form.f-wrap-1 div.f-submit-wrap 
+    {
+	padding: 10px 0;
+	float:right
+    } 
     
     /* FORMS - f-wrap-request */
     form.f-wrap-request fieldset
@@ -88,6 +106,7 @@
     #header
     {
         margin: 0 0 10px;
+	padding: 5px;
     }
     #header #site-name
     {
@@ -99,7 +118,7 @@
     }
     #header #title-name a
     {
-        color: #000066;
+        color: #fff;
     }
 
     /* SEARCH */
@@ -139,7 +158,7 @@
     
     /* LAYOUT TYPE B */
     #type-b #content-wrap {background: none}
-    #type-b #content {margin: 0px}
+    #type-b #content {width:100%; margin: 0px}
     #type-b #utility
     {
         display:none;
