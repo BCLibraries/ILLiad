@@ -313,7 +313,7 @@ form.f-wrap-detail label span.errormsg b {padding: 10px 0;margin: 0 10px 0 30px;
 
 /* TYPOGRAPHY */
 p, ul, ol {margin: 0 0 1.5em}
-h1, h2, h3, h4, h5, h6 {letter-spacing: -1px;font-family: inherit;margin: 1.2em 0 .3em;color:#000;border-bottom: 1px solid #eee;padding-bottom: .1em}
+h1, h2, h3, h4, h5, h6 {letter-spacing: -1px;font-family: 'Open Sans',arial,verdana,sans-serif;margin: 1.2em 0 .3em;color:#000;border-bottom: 1px solid #eee;padding-bottom: .1em}
 h1 {font-size: 196%;margin-top:.6em}
 h2 {font-size: 136%}
 h3 {font-size: 126%}
