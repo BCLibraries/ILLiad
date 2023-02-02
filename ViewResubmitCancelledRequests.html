@@ -1,20 +1,23 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-US">
+
 <head>
-<title>ILLiad - Cancelled Requests</title>
-<#INCLUDE filename="include_head.html">
+	<title>ILLiad - Cancelled Requests</title>
+	<#INCLUDE filename="include_head.html">
 </head>
-<body id="type-b">
-<div id="wrap">
+
+<body>
 	<#INCLUDE filename="include_header.html">
-  	<div id="content-wrap">
-  		<#INCLUDE filename="include_menu.html">
-    	<div id="content">
-			<div class="default-table">			
-				<#TABLE name="ViewResubmitCancelledItems" headerText="Cancelled Requests" noDataAction="ShowMessageRow" noDataMessage="No Cancelled Requests">
-			</div>
-      		<#INCLUDE filename="include_footer.html">
-    	</div>    
-  	</div>
-</div>
+	<#INCLUDE filename="include_menu.html">
+
+	<div class="container">
+		<main id="content" aria-label="Content">
+			<h2 class="page-header"><span aria-hidden="true" class="fas fa-ban fa-1x"></span> Cancelled Requests</h2>							
+			<#DATAREPEATER name="ViewResubmitCancelledItems" TemplateFile="templates/DataRow_DefaultRequest.html" noDataAction="You have no cancelled requests" orderby="TransactionNumber DESC">
+		</main>
+
+		<#INCLUDE filename="include_footer.html">  
+	</div>
+
 </body>
-</html>
+</html>	

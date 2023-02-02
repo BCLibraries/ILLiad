@@ -1,26 +1,31 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-US">
+
 <head>
-<title>ILLiad - Notifications</title>
-<#INCLUDE filename="include_head.html">
-<link href="<#ACTION action="2" type="41" value="RSSID" valueType="lookup" absolutePath="true" includeSessionID="false">" rel="alternate" type="application/rss+xml" title="ILLiad Notifications" />
+	<title>ILLiad - Notifications</title>
+	<#INCLUDE filename="include_head.html">
+	<link href="<#ACTION action='2' type='41' value='RSSID' valueType='lookup' absolutePath='true' includeSessionID='false'>"
+		rel="alternate" type="application/rss+xml" title="ILLiad Notifications">
 </head>
-<body id="type-b">
-<div id="wrap">
-	<#INCLUDE filename="include_header.html">
-  	<div id="content-wrap">
-  		<#INCLUDE filename="include_menu.html">
-    	<div id="content">
-			<a href="<#ACTION action="2" type="41" value="RSSID" valueType="lookup" absolutePath="false" includeSessionID="false">">Subscribe to Notifications Feed</a><br />
-			<div class="default-table">			
-				<#TABLE name="ViewEmailNotifications" headerText="Email Notifications" maxRows="20" noDataAction="ShowMessageRow" noDataMessage="No Email Notifications">
+
+<body>
+  	<#INCLUDE filename="include_header.html">
+	<#INCLUDE filename="include_menu.html">
+
+	<div class="container">
+		<main id="content" aria-label="Content">
+
+			<h2 class="page-header">Notifications</h2>
+
+			<div class="table">
+				<#TABLE name="ViewNotifications" noDataAction="ShowMessageRow" noDataMessage="You have no notifications">
 			</div>
-            <br/>
-            <div class="default-table">			
-				<#TABLE name="ViewSMSNotifications" headerText="SMS Notifications" maxRows="20" noDataAction="ShowMessageRow" noDataMessage="No SMS Notifications">
-			</div>
-      		<#INCLUDE filename="include_footer.html">
-    	</div>    
-  	</div>
-</div>
+
+		</main>
+
+	    <#INCLUDE filename="include_footer.html">
+
+	</div>
 </body>
 </html>
+

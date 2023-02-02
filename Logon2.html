@@ -1,101 +1,68 @@
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
+
 <head>
-<meta http-equiv="Pragma" content="no-cache">
-<title>ILLiad Logon</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="default" />
-<link rel="apple-touch-icon" href="iphone-icon.png" />
-
-<link rel="stylesheet" type="text/css" href="css/main.css" media="screen"/>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://library.bc.edu/theme/modular/header/css/lib-header-custom-bootstrap3.css"/>
-<link rel="stylesheet" href="https://library.bc.edu/theme/modular/header/css/lib-header.css"/>
-<link rel="stylesheet" type="text/css" href="css/mobile.css" media="only screen and (max-device-width: 480px)" />
-<link rel="stylesheet" type="text/css" href="css/print.css" media="print" /> 
-<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-<script type="text/javascript" src="js/illiad.js"></script>
-<!--[if lte IE 6]>
-<link rel="stylesheet" type="text/css" href="css/ie6_or_less.css" />
-<![endif]-->
+	<meta charset="utf-8">
+	<meta http-equiv="Pragma" content="no-cache">
+	<title>ILLiad - Logon</title>
+	<#INCLUDE filename="include_head.html">
 </head>
-<body id="type-a">
-<div id="wrap">
-<div id="bclib-header" class="hide-search">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-12 col-xs-6 col-xxs">
-                <a href="https://library.bc.edu" title="Go to Boston College Libraries" class="bclib-header-logo">
-                    <img src="https://library.bc.edu/theme/img/title_295x30_transparent_whitetext.png" id="fakebctitle" alt="Boston College Library Logo">
-                    <p>Boston College Libraries</p>
-                </a>
-            </div>
-            <div class="col-md-8 col-sm-12 col-xs-6 col-xxs header-right">
-                <div class="col-md-7 col-sm-7 col-xs-7 col-xxs link-wrapper">
-                    <ul class="bclib-header-links">
-                        <li><a href="https://bc.edu">BC Home</a></li>
-                        <li><a href="https://www.bc.edu/bc-web/about/mission.html">Mission</a></li>
-                        <li><a href="https://library.bc.edu/feedback"><span class="fa fa-commenting-o" aria-hidden="true"></span> Feedback</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-5 col-sm-5 col-xs-5 col-xxs input-wrapper">
-                    <div class="pull-right">
-                        <form action="https://www.bc.edu/bc-web/search.html">
-                            <div class="input-group" id="bclib-header-form">
-                                <label for="bclib-header-search" class="accessibility-text">Search the Library</label>
-                                <input type="hidden" ie="UTF-8" />
-                                <input type="text" id="bclib-header-search" class="form-control" name="q" placeholder="Search bc.edu">
-                                <span class="input-group-btn"><button class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i><span class="accessibility-text">Submit Search</span></button></span>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div id="header">
-	<div id="title-name"><a href="#">Interlibrary Loan</a></div>				
+<body>
+
+	<#INCLUDE filename="include_header.html">
 	
-</div>
-  <div id="content-wrap">
-    <div id="content">
-    <div id="status"><#STATUS></div>
-		<form action="<#DLL>" method="post" name="Logon" class="f-wrap-1">            
-			<input type="hidden" name="ILLiadForm" value="Logon">
-            <#FORMSTATE>
-			<div id="logonform">
-				<fieldset>			
-					<h3>ILLiad Logon</h3>			
+	<div class="alerts-bar">
+		<div class="container" id="webAlerts"></div>
+	</div>
+
+	<div class="container">
+		<main id="content" aria-label="Content">
+			<div id="status" class="container"><#STATUS></div>
+		
+			<form action="<#DLL>" method="post" name="Logon">
+				<input type="hidden" name="ILLiadForm" value="Logon">
+				<#FORMSTATE>
+
+				<div class="logon-directions">
+					<div>Enter your user information below.</div>
+					<div>Then press the Logon to ILLiad button to continue.</div>
+				</div>
+
+				<div class="logon-field form-group col-md-8">
 					<label for="username">
-						<span class="field">
-							<b>Username</b>
-						</span>
-						<input id="username" name="Username" type="text" class="f-name" /><br />
-					</label>			
-					<label for="password">
-						<span class="field">
-							<b>Password</b>
-						</span>
-						<input id="password" name="Password" type="password" class="f-name" /><br />
+						Username
 					</label>
-							
-					<div class="f-submit-wrap">
-						<input type="submit" name="SubmitButton" value="Logon to ILLiad" class="f-submit" /><br />
+					<input type="text" class="form-control" name="username" id="username" value="">
+				</div>
+
+				<div class="logon-field form-group col-md-8">
+					<label for="password">
+						Password
+					</label>
+					<input type="password" name="password" class="form-control" id="password" autocomplete="off">
+				</div>
+				<button class="btn btn-primary btn-md" type="submit" name="SubmitButton" value="Logon to ILLiad">Logon to ILLiad</button>
+			</form>
+
+			<div class="container" aria-label="Account creation and password reset">
+				<form action="illiad.dll?Action=10&Form=79" method="post" name="RegisterForm" id="RegisterForm">
+					<#FORMSTATE>
+					<div class="forgot-password-link">
+						<a href="<#ACTION action='10' form='84'>">
+							<span aria-hidden="true" class="fas fa-question-circle"></span>  Forgot Password?
+						</a>
 					</div>
-				</fieldset>
+					<div class="first-time-link">
+						<a href="#" onclick="RegisterForm.submit(); return false;">
+							<span aria-hidden="true" class="fas fa-user-plus"></span>  First Time Users
+						</a>
+					</div>
+				</form>
 			</div>
-		</form>
-        <div id="footer">
-        Maintained by <a href="https://library.bc.edu">Boston College Libraries</a> &copy; The Trustees of Boston College. <a href="https://bc.edu/legal/">Legal</a>
-</div>
-    </div>    
-  </div>
-</div>
+		</main>
+	
+		<#INCLUDE filename="include_footer.html">
+	</div>
 </body>
 </html>
