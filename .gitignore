@@ -127,6 +127,7 @@
 !css/main.css
 !css/mobile.css
 !css/print.css
+!include_bc_header.html
 !include_footer.html
 !include_head.html
 !include_header.html
