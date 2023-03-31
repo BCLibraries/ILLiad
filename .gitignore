@@ -1,5 +1,4 @@
 *
-!.gitignore
 !AboutILLiad.html
 !ArticleRequest.html
 !Blocked.html
@@ -139,3 +138,6 @@
 !include_request_cited.html
 !js/illiad.js
 !js/userNotificationPreferences.js
+!webpath.txt
+!web.txt
+!WebPageVersion.txt
