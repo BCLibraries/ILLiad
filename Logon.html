@@ -2,7 +2,7 @@
 <html lang="en-us">
 
 <head>
-    <title>ILLiad - Logon</title>
+    <title>Interlibrary Loan - Logon</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -20,6 +20,17 @@
     <script src="js/webAlerts.js"></script>
     <script src="js/cookieconsent.min.js" data-cfasync="false"></script>
     <script src="js/atlasCookieConsent.js"></script>
+
+    <!-- <script>
+        function myFunction() {
+            var x = document.getElementById("forgot-password-text");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script> -->
 </head>
 
 <body>
@@ -46,7 +57,7 @@
     </div>
     <header class="head">
         <div><a href="#content" accesskey="S" onclick="$('#content').focus();" class="offscreen">Skip to Main Content</a></div>
-        <h1 id="illiad-title">ILLiad</h1>
+        <h1 id="illiad-title">Interlibrary Loan</h1>
     </header>
 
     <div class="alerts-bar">
@@ -55,49 +66,47 @@
     
     <div class="container">
         <main id="content" aria-label="Content">
-            <form action="illiad.dll" method="post" name="Logon">
-                <input type="hidden" name="ILLiadForm" value="Logon">
+            <div class="logon-wrapper col-md-4">
+                <form action="illiad.dll" method="post" name="Logon">
+                    <input type="hidden" name="ILLiadForm" value="Logon">
 
-                <div class="logon-directions">
-                    <div>Enter your user information below.</div>
-                    <div>Then press the Logon to ILLiad button to continue.</div>
-                </div>
+                    <!-- <div class="logon-directions">
+                        <div>Enter your user information below.</div>
+                        <div>Then press the Logon to ILLiad button to continue.</div>
+                    </div> -->
 
-                <div class="logon-field form-group col-md-8">
-                    <label for="username">
-                        Username
-                    </label>
-                    <input type="text" class="form-control" name="username" id="username" value="">
-                </div>
+                    <div class="logon-field form-group">
+                        <label for="username">
+                            BC Username
+                        </label>
+                        <input type="text" class="form-control" name="username" id="username" value="">
+                    </div>
 
-                <div class="logon-field form-group col-md-8">
-                    <label for="password">
-                        Password
-                    </label>
-                    <input type="password" class="form-control" name="password" id="password" autocomplete="off">
-                </div>
+                    <div class="logon-field form-group">
+                        <label for="password">
+                            BC Password
+                        </label>
+                        <input type="password" class="form-control" name="password" id="password" autocomplete="off">
+                    </div>
 
-                <button class="btn btn-primary btn-md" type="submit" name="SubmitButton" value="Logon to ILLiad">Logon to ILLiad</button>
+                    <div class="logon-field form-group">
+                        <button class="btn btn-primary btn-md" type="submit" name="SubmitButton" value="Logon to ILLiad">Logon to ILL</button>
+                    </div>
+                </form>
 
-            </form>
-
-            <div class="forgot-password-link">
-                <a href="illiad.dll?Action=10&Form=84">
-                    <span aria-hidden="true" class="fas fa-question-circle"></span>  Forgot Password?
-                </a>
+                <!-- <div class="forgot-password-link">
+                    <a href="#forgot-password-text" onclick="myFunction()">
+                        <span aria-hidden="true" class="fas fa-question-circle"></span>  Forgot Password?
+                    </a>
+                    <div id="forgot-password-text" style="display:none;">
+                        Your password hint is: Your BC Password.
+                    </div>
+                </div> -->
             </div>
-            <div class="first-time-link">
-                <a href="illiad.dll?Action=10&Form=79">
-                    <span aria-hidden="true" class="fas fa-user-plus"></span>  First Time Users
-                </a>
-            </div>
-
         </main>
 
         <footer class="foot">
-            <div>Powered by <a href="illiad.dll?Action=10&Form=1">ILLiad</a></div>
-            <div>&copy; 2022 <a href="http://www.atlas-sys.com"> Atlas Systems, Inc.</a> All Rights Reserved.</div>
-            <div><a href="illiad.dll?Action=10&Form=3">Site Map </a></div>
+            <div>Maintained by Boston College Libraries | Copyright &copy; 2023 Trustees of Boston College | <a href="https://www.bc.edu/content/bc-web/sites/legal.html">Legal</a></div>
         </footer>
     </div>
 

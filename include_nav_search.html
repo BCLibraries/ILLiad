@@ -14,10 +14,12 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarNewRequest" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span aria-hidden="true" class="fas fa-book"></span>   New Requests
+            <span aria-hidden="true" class="fas fa-book"></span>   New Request
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarNewRequest">
-          <a class="dropdown-item" href="<#ACTION action='10' form='22'>">Article</a>
+        <div class="dropdown-menu" aria-labelledby="navbarNewRequest">       
+          <a class="dropdown-item" href="<#ACTION action='10' form='22'>">Copy Request</a>
+          <a class="dropdown-item" href="<#ACTION action='10' form='21'>">Loan Request</a>
+<!--           <a class="dropdown-item" href="<#ACTION action='10' form='22'>">Article</a>
           <a class="dropdown-item" href="<#ACTION action='10' form='21'>">Book</a>
           <a class="dropdown-item" href="<#ACTION action='10' form='23'>">Book Chapter</a>
           <a class="dropdown-item" href="<#ACTION action='10' form='24'>">Conference Paper</a>
@@ -25,7 +27,7 @@
           <a class="dropdown-item" href="<#ACTION action='10' form='26'>">Report</a>
           <a class="dropdown-item" href="<#ACTION action='10' form='27'>">Thesis</a>
           <a class="dropdown-item" href="<#ACTION action='10' form='28'>">Standards Document</a>
-          <a class="dropdown-item" href="<#ACTION action='10' form='32'>">Multimedia</a>
+          <a class="dropdown-item" href="<#ACTION action='10' form='32'>">Multimedia</a> -->
         </div>
       </li>
 
@@ -44,7 +46,7 @@
         </div>                  
       </li>
 
-      <li class="nav-item dropdown">
+     <!--  <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarMyProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span aria-hidden="true" class="fas fa-user"></span> Profile
         </a>
@@ -60,11 +62,21 @@
             <span class="far fa-id-badge"></span>  Logged in as <#PARAM name='Username'>
           </a>
         </div>
-      </li>
+      </li> -->
 
-      <li class="nav-item">
+   <!--    <li class="nav-item">
         <a class="nav-link" href="<#ACTION action='99'>">
             <span aria-hidden="true" class="fas fa-sign-out-alt"></span>  Logoff</a>
+      </li> -->
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarLoggedInAs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span aria-hidden="true" class="far fa-id-badge"></span>  <#PARAM name='Username'>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarLoggedInAs">
+          <a class="dropdown-item" href="<#ACTION action='99'>">
+            <span aria-hidden="true" class="fas fa-sign-out-alt"></span>  Logoff</a>
+        </div>                  
       </li>
 
       <form action="illiad.dll" name="Search" method="post" class="form-inline my-2 my-lg-0">

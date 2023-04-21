@@ -6,6 +6,17 @@
 	<meta http-equiv="Pragma" content="no-cache">
 	<title>ILLiad - Logon</title>
 	<#INCLUDE filename="include_head.html">
+
+	<!-- <script>
+        function myFunction() {
+            var x = document.getElementById("forgot-password-text");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script> -->
 </head>
 
 <body>
@@ -20,46 +31,42 @@
 		<main id="content" aria-label="Content">
 			<div id="status" class="container"><#STATUS></div>
 		
-			<form action="<#DLL>" method="post" name="Logon">
-				<input type="hidden" name="ILLiadForm" value="Logon">
-				<#FORMSTATE>
-
-				<div class="logon-directions">
-					<div>Enter your user information below.</div>
-					<div>Then press the Logon to ILLiad button to continue.</div>
-				</div>
-
-				<div class="logon-field form-group col-md-8">
-					<label for="username">
-						Username
-					</label>
-					<input type="text" class="form-control" name="username" id="username" value="">
-				</div>
-
-				<div class="logon-field form-group col-md-8">
-					<label for="password">
-						Password
-					</label>
-					<input type="password" name="password" class="form-control" id="password" autocomplete="off">
-				</div>
-				<button class="btn btn-primary btn-md" type="submit" name="SubmitButton" value="Logon to ILLiad">Logon to ILLiad</button>
-			</form>
-
-			<div class="container" aria-label="Account creation and password reset">
-				<form action="illiad.dll?Action=10&Form=79" method="post" name="RegisterForm" id="RegisterForm">
+			<div class="logon-wrapper col-md-4">
+				<form action="<#DLL>" method="post" name="Logon">
+					<input type="hidden" name="ILLiadForm" value="Logon">
 					<#FORMSTATE>
-					<div class="forgot-password-link">
-						<a href="<#ACTION action='10' form='84'>">
-							<span aria-hidden="true" class="fas fa-question-circle"></span>  Forgot Password?
-						</a>
+
+					<!-- <div class="logon-directions">
+						<div>Enter your user information below.</div>
+						<div>Then press the Logon to ILLiad button to continue.</div>
+					</div> -->
+
+					<div class="logon-field form-group">
+						<label for="username">
+							BC Username
+						</label>
+						<input type="text" class="form-control" name="username" id="username" value="">
 					</div>
-					<div class="first-time-link">
-						<a href="#" onclick="RegisterForm.submit(); return false;">
-							<span aria-hidden="true" class="fas fa-user-plus"></span>  First Time Users
-						</a>
+
+					<div class="logon-field form-group">
+						<label for="password">
+							BC Password
+						</label>
+						<input type="password" name="password" class="form-control" id="password" autocomplete="off">
 					</div>
+					<button class="btn btn-primary btn-md" type="submit" name="SubmitButton" value="Logon to ILLiad">Logon to ILL</button>
 				</form>
 			</div>
+
+			<!-- <div class="forgot-password-link">
+                <a href="#forgot-password-text" onclick="myFunction()">
+                    <span aria-hidden="true" class="fas fa-question-circle"></span>  Forgot Password?
+                </a>
+                <div id="forgot-password-text" style="display:none;">
+                    Your password hint is: Your BC Password.
+                </div>
+            </div> -->
+			
 		</main>
 	
 		<#INCLUDE filename="include_footer.html">

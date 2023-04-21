@@ -2,7 +2,7 @@
 <html lang="en-US">
 
 <head>
-	<title>ILLiad - Book Request</title>
+	<title>ILL | Loan Request</title>
 	<#INCLUDE filename="include_head.html">
 </head>
 
@@ -17,27 +17,28 @@
 				<input type="hidden" name="ESPNumber" value="<#PARAM name='ESPNumber'>">
 				<input type="hidden" name="CallNumber" value="<#PARAM name='CallNumber'>">
 				<input type="hidden" name="NotWantedAfter" value="<#PARAM name='NotWantedAfter'>">
+				<input type="hidden" name="Notes" id="Notes" value="<#PARAM name='Notes'>">
 				
 				<fieldset>
 
-					<h2 class="page-header">Book Request</h2>
+					<h2 class="page-header">Loan Request</h2>
+					<span class="form-notes"><strong>Use this form to request a physical item: Book, Dissertation, Music Score, Microfilm, Microfiche, DVD, etc.</strong></span>
+					<span class="form-notes">Request only one item per form.</span>
+					<span class="form-notes">Delivery of interlibrary loan requests depends on the availability of interlibrary loan services at other institutions.</span>
 					
 					<section name="bookrequest-info">
-						
+					<h3>Item Info</h3>
 						<div class="form-group col-md-9">
 							<label for="LoanTitle">
 								<span class="field">
 									<span class="<#ERROR name='ERRORLoanTitle'>">
 										Title
-										<span class="req">(required)</span>
+										<span class="req">*</span>
 									</span>
-									<br>
-									<span class="small-notes">
-										Please do not abbreviate unless your citation is abbreviated
-									</span> 
 								</span>
 							</label>
 							<input type="text" class="form-control" name="LoanTitle" id="LoanTitle" value="<#PARAM name='LoanTitle'>" required>
+							<span class="small-notes"><a href="https://library.bc.edu/catalog" tabindex="-1" target="_new">Did you check the Library Catalog to see if we own this book?</a></span>
 						</div>
 						
 						<div class="form-group col-md-9">  
@@ -45,7 +46,7 @@
 								<span class="field">
 									<span class="<#ERROR name='ERRORLoanAuthor'>">
 										Author/Editors
-										<span class="req">(required)</span>
+										<span class="req">*</span>
 									</span>
 								</span>
 							</label>
@@ -79,10 +80,11 @@
 								<span class="field">
 									<span class="<#ERROR name='ERRORLoanDate'>">
 										Date of Publication
+										<span class="req">*</span>
 									</span>
 								</span>
 							</label>
-							<input type="text" class="form-control" name="LoanDate" id="LoanDate" value="<#PARAM name='LoanDate'>">
+							<input type="text" class="form-control" name="LoanDate" id="LoanDate" value="<#PARAM name='LoanDate'>" required>
 						</div>
 					
 						<div class="form-group col-md-9">
@@ -100,7 +102,7 @@
 							<label for="ISSN">
 								<span class="field">
 									<span class="<#ERROR name='ERRORISSN'>">
-										ISBN (International Standard Book Number)
+										ISBN
 									</span>
 									<br>
 								<span class="small-notes">
@@ -110,8 +112,8 @@
 							</label>
 							<input type="text" class="form-control" name="ISSN" id="ISSN" value="<#PARAM name='ISSN'>">
 						</div>
-						
-						<!--<div class="form-group col-md-9">
+
+						<div class="form-group col-md-9">
 							<label for="CallNumber">					
 								<span class="field">
 									<span class="<#ERROR name='ERRORCallNumber'>">
@@ -121,18 +123,64 @@
 							</label>
 							<input type="text" class="form-control" name="CallNumber" id="CallNumber" value="<#PARAM name='CallNumber'>">
 						</div>
-						
+
+						<h3>Delivery Info</h3>
+
 						<div class="form-group col-md-9">
-							<label for="ESPNumber">
+							<label for="ItemInfo1">
 								<span class="field">
-									<span class="<#ERROR name='ERRORESPNumber'>">
-										OCLC or Docline UI Number
+									<span class="<#ERROR name='ItemInfo1'>">
+										Select pickup location
+										<span class="req">*</span>
 									</span>
 								</span>
 							</label>
-							<input type="text" class="form-control" name="ESPNumber" id="ESPNumber" value="<#PARAM name='ESPNumber'>">
-						</div>-->
-							
+							<select id="ItemInfo1" name="ItemInfo1" size="1" class="custom-select mr-sm-2"  data-persistedValue="<#PARAM name='ItemInfo1'>" required>
+								<option>O'Neill Library</option>
+								<option>Bapst Library</option>
+								<option>Educational Resource Center</option>
+								<option>Social Work Library</option>
+								<option>Theology & Ministry Library</option>
+								<option value="Remote User">Remote User</option>
+							</select>
+						</div>
+
+						<div class="form-group col-md-9 hidden-field" id="remote-user">
+							<label for="RemoteUser">
+								<span class="field">
+									<span class="<#ERROR name='ERRORNotes'>">  
+										Please enter your mailing address:
+									</span>
+								</span>
+							</label>
+							<textarea id="RemoteUser" name="RemoteUser" rows="2" cols="40" class="form-control"></textarea>
+						</div>
+						
+						<div class="form-group col-md-9">
+							<label for="NotWantedAfter">
+								<span class="field">
+									<span class="<#ERROR name='ERRORNotWantedAfter'>"> 
+										Not Wanted After Date
+									</span>
+								</span>
+							</label>
+							<input type="text" class="form-control" name="NotWantedAfter" id="NotWantedAfter" value="<#PARAM name='NotWantedAfter'>">
+							<span class="small-notes">
+								(MM/DD/YYYY)
+							</span>
+						</div>
+
+						<div class="form-group col-md-9">
+							<label for="ItemInfo4">
+								<span class="field">
+									<span class="<#ERROR name='ItemInfo4'>"> 
+										If this is a course required reading, please add the Course Code
+									</span>
+								</span>
+							</label>
+							<input type="text" class="form-control" name="ItemInfo4" id="ItemInfo4" value="<#PARAM name='ItemInfo4'>">
+						</div>
+
 						<div class="form-group col-md-9">
 							<label for="AcceptAlternateEdition">
 								<span class="field">
@@ -141,14 +189,51 @@
 									</span>
 								</span>
 							</label>
-							<select id="AcceptAlternateEdition" name="AcceptAlternateEdition" size="1" class="custom-select mr-sm-2"  data-persistedValue="<#PARAM name='AcceptAlternateEdition'>">
+							<select id="AcceptAlternateEdition" name="AcceptAlternateEdition" size="1" class="form-control"  data-persistedValue="<#PARAM name='AcceptAlternateEdition'>">
 								<option value="Yes">Yes</option>
 								<option value="No">No</option>
 							</select>
 						</div>
-							
+								
 						<div class="form-group col-md-9">
-							<label for="Notes">
+							<label for="AcceptNonEnglish">
+								<span class="field">
+									<span class="<#ERROR name='ERRORAcceptNonEnglish'>">
+										Will you accept the item in a language other than English?  
+									</span>
+								</span>
+							</label>
+							<select id="AcceptNonEnglish" name="AcceptNonEnglish" size="1" class="form-control">
+								<option selected><#PARAM name='AcceptNonEnglish'></option>
+								<option value="no">No</option>
+								<option value="yes">Yes</option>
+							</select>
+						</div>
+
+						<div class="form-group col-md-9 hidden-field" id="AcceptableLanguages">
+							<label for="AcceptableLanguages">
+								<span class="field">
+									<span class="<#ERROR name='ERRORNotes'>">  
+										Acceptable languages:   
+									</span>
+								</span>
+							</label>
+							<input type="text" class="form-control" id="AcceptableLanguagesInput" name="AcceptableLanguages">
+						</div>
+					
+						<div class="form-group col-md-9">
+							<label for="CitedIn">
+								<span class="field">
+									<span class="<#ERROR name='ERRORCitedIn'>">
+										Where did you find this item cited?
+									</span>
+								</span>
+							</label>
+							<textarea id="ERRORCitedIn" name="ERRORCitedIn" rows="2" cols="40" class="form-control" placeholder="Examples: WorldCat, CINHAL, PsycInfo, etc."><#PARAM name='ERRORCitedIn'></textarea>
+						</div>
+						
+						<div class="form-group col-md-9" id="notes-div">
+							<label for="NotesField">
 								<span class="field">
 									<span class="<#ERROR name='ERRORNotes'>">  
 										Notes   
@@ -156,7 +241,7 @@
 									<span class="small-notes">Put any information here that may help us find the item, as well as any other pertinent information.</span>
 								</span>
 							</label>
-							<textarea id="Notes" name="Notes" rows="2" cols="40" class="form-control"><#PARAM name='Notes'></textarea><br>
+							<textarea id="NotesField" name="NotesField" rows="2" cols="40" class="form-control"></textarea>
 						</div>
 						
 					</section>
@@ -166,7 +251,7 @@
 			</form>
 		</main>
 		<#INCLUDE filename='include_footer.html'>
-	</div>    
+	</div>
 </body>
 </html>
 
