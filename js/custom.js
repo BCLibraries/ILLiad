@@ -39,7 +39,7 @@ $(document).ready(function () {
         }
 
         if ($('#RemoteUser').val().length != 0) {
-            value += '\n-----\nRemote User Address:\n' + $('#AcceptableLanguagesInput').val();
+            value += '\n-----\nRemote User Address:\n' + $('#RemoteUser').val();
         }
 
         if ($('#NotesField').val().length != 0) {
