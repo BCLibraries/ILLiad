@@ -6,20 +6,54 @@
 /* LOCAL COLORS */
 /* Text colors */
 /* Body colors (borders, backgrounds, etc) */
-.main-navbar {
-  background-color: #501315;
-}
-
+/*
+Style overrides for default ILLiad webpages
+*/
 body {
   font-family: "Open Sans", Arial, sans-serif;
 }
 
-.foot {
-  font-size: 0.75rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: #8a100b;
 }
 
-label {
-  font-weight: bold;
+a:focus,
+a:focus-visible,
+.btn:focus,
+.btn:focus-visible {
+  box-shadow: none;
+}
+
+.alert-secondary {
+  background-color: #dccaa0;
+}
+
+.head {
+  background-color: #fff;
+}
+
+#illiad-title {
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+.main-navbar {
+  background-color: #501315;
+}
+
+.foot {
+  font-size: 0.75rem;
 }
 
 .logon-wrapper {
@@ -30,33 +64,35 @@ label {
   margin: 1rem auto;
 }
 
+/*
+Form style overrides
+*/
+label {
+  font-weight: bold;
+}
+
+.req {
+  font-size: 16px;
+}
+
+form section {
+  background-color: #edefef;
+}
+
+select.form-control[multiple],
+select.form-control[size] {
+  width: auto;
+}
+
 .form-notes {
   display: block;
   font-size: 14px;
   padding-bottom: 0.75rem;
 }
 
-/*#header-bg {
-  //  background: url('frog.jpg') no-repeat center/100% #fff;
- //   background-position-y: 40%;
-}*/
-a:focus, a:focus-visible, .btn:focus, .btn:focus-visible {
-  box-shadow: none;
-}
-
-.head {
-  background-color: #fff;
-}
-
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  color: #8a100b;
-}
-
-#illiad-title {
-  font-size: 1.75rem;
-  margin: 0;
-}
-
+/*
+Button style overrides
+*/
 .btn-primary {
   background-color: #501315;
   border: none;
@@ -88,35 +124,40 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #fff;
 }
 
-.alert-secondary {
-  background-color: #dccaa0;
-}
-
-form section {
-  background-color: #edefef;
-}
-
-select.form-control[multiple], select.form-control[size] {
-  width: auto;
-}
-
 /*
-.form-control::-webkit-input-placeholder { 
-    color: $light-gray;
+For the hidden form fields
+*/
+.hidden-field {
+  display: none;
+  transition: 0.3s;
 }
 
- .form-control::-moz-placeholder {
-    color: $light-gray;
+.flash .field {
+  -webkit-animation-name: flash-animation;
+  -webkit-animation-duration: 0.3s;
+  animation-name: flash-animation;
+  animation-duration: 0.3s;
 }
 
- .form-control:-ms-input-placeholder {
-    color: $light-gray;
+@-webkit-keyframes flash-animation {
+  from {
+    background: rgba(255, 238, 170, 0.7);
+  }
+  to {
+    background: default;
+  }
 }
-
- .form-control:placeholder {
-color: $light-gray;
-}*/
-/* top level maroon bar */
+@keyframes flash-animation {
+  from {
+    background: rgba(255, 238, 170, 0.7);
+  }
+  to {
+    background: default;
+  }
+}
+/* 
+top level maroon bar
+*/
 #bclib-header {
   box-sizing: border-box;
   background: #8a100b no-repeat 100% 0%;
@@ -163,38 +204,6 @@ color: $light-gray;
   overflow: visible;
   background-color: #fff;
   padding: 4px;
-}
-
-.flash .field {
-  -webkit-animation-name: flash-animation;
-  -webkit-animation-duration: 0.3s;
-  animation-name: flash-animation;
-  animation-duration: 0.3s;
-}
-
-@-webkit-keyframes flash-animation {
-  from {
-    background: rgba(255, 238, 170, 0.7);
-  }
-  to {
-    background: default;
-  }
-}
-@keyframes flash-animation {
-  from {
-    background: rgba(255, 238, 170, 0.7);
-  }
-  to {
-    background: default;
-  }
-}
-.hidden-field {
-  display: none;
-  transition: 0.3s;
-}
-
-.req {
-  font-size: 16px;
 }
 
 #bclib-header a {

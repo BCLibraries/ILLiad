@@ -4,6 +4,7 @@
 <head>
 	<title>ILL | Copy Request</title>
 	<#INCLUDE filename="include_head.html">
+	<script src="js/custom.js"></script>
 </head>
 
 <body>
@@ -257,32 +258,7 @@
 			</form>		
 		</main>
 		<#INCLUDE filename="include_footer.html">
-	</div>    
-<!-- 	<script>
-	// $(document).ready(function() {
-	// 	$('#Notes').html(document.getElementById('Languages').value + ' ' + document.getElementById('Notes').value);
-	// });
-
-		document.getElementById('AcceptNonEnglish').onchange=function(){
-			if (document.getElementById('AcceptNonEnglish').value == 'yes') {
-				document.getElementById('AcceptableLanguages').style.display='block';
-				document.getElementById('AcceptableLanguages').classList.add('flash');
-				setTimeout(function() {
-					document.getElementById('AcceptableLanguages').classList.remove('flash');
-				}, 300);
-			} else { document.getElementById('AcceptableLanguages').style.display='none'; }
-		}
-
-		$("#AcceptableLanguages").on('change', '#AcceptableLanguagesInput', updateNotes);
-		$("#notes-div").on('change', '#NotesField', updateNotes);
-
-		function updateNotes() {
-			var value = 'Acceptable languages:\n' + $('#AcceptableLanguagesInput').val() + '\n-----\nNotes:\n' + $('#NotesField').val();
-			$('#Notes').val(value);
-			console.log($('#Notes').val());
-		}
-
-	</script> -->
+	</div>
 </body>
 </html>
 

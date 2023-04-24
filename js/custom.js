@@ -1,3 +1,7 @@
+/*
+Custom JS for request page functions
+*/
+
 $(document).ready(function () {
 
     /*
@@ -49,4 +53,9 @@ $(document).ready(function () {
         $('#Notes').val(value);
         console.log($('#Notes').val());
     }
+
+    /*
+    For making the select only two options lol
+    */
+    $('select option[value="<#PARAM name='AcceptNonEnglish'>"]').attr('selected','true');
 });
