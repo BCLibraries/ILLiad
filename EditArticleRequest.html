@@ -2,8 +2,9 @@
 <html lang="en-US">
 
 <head>
-	<title>ILL | Edit Article Request</title>
+	<title>ILL | Edit Copy Request</title>
 	<#INCLUDE filename="include_head.html">
+    <script src="js/custom.js"></script>
 </head>
 
 <body>
@@ -19,152 +20,231 @@
                     
                 <div class="mainContent">   
                     <fieldset>
-                        <h2 class="page-header">Article Request</h2> 
+                        <h2 class="page-header">Edit Copy Request: Transaction Number <#PARAM name='TransactionNumber'></h2> 
                         <section name="article-info">
                                 
-                            <div class="form-group col-md-9">
-                                <label for="PhotoJournalTitle">
-                                    <span class="field">
-                                        <span class="<#ERROR name='ERRORPhotoJournalTitle'>">
-                                            Title (Journal, Conference Proceedings, Anthology)  
-                                            <span class="req">(required)</span>
-                                        </span>
-                                        <br>
-                                        <span class="small-notes">
-                                            Please do not abbreviate unless your citation is abbreviated  
-                                        </span>
-                                    </span>
-                                    <br>
-                                    </label>
-                                <input type="text" class="form-control" name="PhotoJournalTitle" id="PhotoJournalTitle" value="<#PARAM name='PhotoJournalTitle'>" required>	
-                            </div>	
+                            <h3>Article/Chapter Info</h3>
+						<div class="form-group col-md-9">
+							<label for="DOI">
+								<span class="field">
+									<span class="<#ERROR name='DOI'>">
+										DOI   
+									</span>
+									<br>
+									<span class="small-notes">
+										If given will speed request processing
+									</span>
+								</span>
+							</label>
+							<input type="text" class="form-control" name="DOI" id="DOI" value="<#PARAM name='DOI'>">
+						</div>
 
-                            <div class="form-group col-md-9"> 
-                                <label for="PhotoArticleTitle">
-                                    <span class="field">
-                                        <span class="<#ERROR name='ERRORPhotoArticleTitle'>">
-                                            Article Title   
-                                            <span class="req">(required)</span>
-                                        </span>
-                                    </span>
-                                </label>
-                                <input type="text" class="form-control" name="PhotoArticleTitle" id="PhotoArticleTitle" value="<#PARAM name='PhotoArticleTitle'>" required>
-                            </div>
+						<div class="form-group col-md-9">
+							<label for="PhotoArticleTitle">
+								<span class="field">
+									<span class="<#ERROR name='ERRORPhotoArticleTitle'>">
+										Title of Article, Chapter, Paper, etc.  
+										<span class="req">*</span> 
+									</span>	
+								</span>
+							</label>
+							<input type="text" class="form-control" name="PhotoArticleTitle" id="PhotoArticleTitle" value="<#PARAM name='PhotoArticleTitle'>" required>
+						</div>
 
-                            <div class="form-group col-md-9"> 
-                                <label for="PhotoArticleAuthor">
-                                    <span class="field">
-                                    <span class="<#ERROR name='ERRORPhotoArticleAuthor'>">
-                                            Article Author   
-                                        </span>
-                                    </span>
-                                </label>
-                                <input type="text" class="form-control" name="PhotoArticleAuthor" id="PhotoArticleAuthor" value="<#PARAM name='PhotoArticleAuthor'>">
-                            </div>
-                                
-                            <div class="form-group col-md-9">
-                                <label for="PhotoJournalVolume">
-                                    <span class="field">
-                                        <span class="<#ERROR name='ERRORPhotoJournalVolume'>">
-                                            Volume
-                                        </span>
-                                    </span>
-                                </label>
-                                <input type="text" class="form-control" name="PhotoJournalVolume" id="PhotoJournalVolume" value="<#PARAM name='PhotoJournalVolume'>">
-                            </div>
-                        
-                            <div class="form-group col-md-9">
-                                <label for="PhotoJournalIssue">
-                                    <span class="field">
-                                        <span class="<#ERROR name='ERRORPhotoJournalIssue'>">
-                                            Issue Number or Designation
-                                        </span>
-                                    </span>
-                                </label>
-                                <input type="text" class="form-control" name="PhotoJournalIssue" id="PhotoJournalIssue" value="<#PARAM name='PhotoJournalIssue'>">
-                            </div>
-                                        
-                            <div class="form-group col-md-9">
-                                <label for="PhotoJournalMonth">
-                                    <span class="field">
-                                        <span class="<#ERROR name='ERRORPhotoJournalMonth'>">
-                                            Month
-                                        </span>
-                                    </span>
-                                </label>
-                                <input type="text" class="form-control" name="PhotoJournalMonth" id="PhotoJournalMonth" value="<#PARAM name='PhotoJournalMonth'>">
-                            </div>
-                        
-                            <div class="form-group col-md-9">
-                                <label for="PhotoJournalYear">
-                                    <span class="field">
-                                        <span class="<#ERROR name='ERRORPhotoJournalYear'>">
-                                            Year   
-                                        </span>
-                                    </span>
-                                    </label>
-                                <input type="text" class="form-control" name="PhotoJournalYear" id="PhotoJournalYear" value="<#PARAM name='PhotoJournalYear'>">
-                            </div>
-                        
-                            <div class="form-group col-md-9">
-                                <label for="PhotoJournalInclusivePages">
-                                    <span class="field">
-                                        <span class="<#ERROR name='ERRORPhotoJournalInclusivePages'>">
-                                            Inclusive Pages   
-                                        </span>
-                                    </span>
-                                    </label>
-                                <input type="text" class="form-control" name="PhotoJournalInclusivePages" id="PhotoJournalInclusivePages" value="<#PARAM name='PhotoJournalInclusivePages'>">
-                            </div>
-                                    
-                            <div class="form-group col-md-9">
-                                <label for="ISSN">
-                                    <span class="field">
-                                        <span class="<#ERROR name='ERRORISSN'>"> 
-                                            ISSN (International Standard Serial Number)   
-                                        </span>
-                                        <br>
-                                        <span class="small-notes">
-                                            If given will speed request processing
-                                        </span>
-                                    </span>
-                                    </label>
-                                <input type="text" class="form-control" name="ISSN" id="ISSN" value="<#PARAM name='ISSN'>">
-                            </div>
-                        
-                            <!--<div class="form-group col-md-9">
-                                <label for="CallNumber">
-                                    <span class="field">
-                                        <span class="<#ERROR name='ERRORCallNumber'>">
-                                            Call Number   
-                                        </span>
-                                    </span>
-                                </label>
-                                <input type="text" class="form-control" name="CallNumber" id="CallNumber" value="<#PARAM name='CallNumber'>">
-                            </div>
-                        
-                            <div class="form-group col-md-9">
-                                <label for="ESPNumber">
-                                    <span class="field">
-                                        <span class="<#ERROR name='ERRORESPNumber'>">
-                                            OCLC or Docline UI Number   
-                                        </span>
-                                    </span>
-                                </label>
-                                <input type="text" class="form-control" name="ESPNumber" id="ESPNumber" value="<#PARAM name='ESPNumber'>">
-                            </div>-->
-                        
-                            <div class="form-group col-md-9">
-                                <label for="Notes">
-                                    <span class="field">
-                                        <span class="<#ERROR name='ERRORNotes'>">  
-                                            Notes   
-                                        </span><br>
-                                        <span class="small-notes">Put any information here that may help us find the item, as well as any other pertinent information.</span>
-                                    </span>
-                                </label>
-                                <textarea id="Notes" name="Notes" rows="2" cols="40" class="form-control"><#PARAM name='Notes'></textarea><br>
-                            </div>
+						<div class="form-group col-md-9"> 
+							<label for="PhotoArticleAuthor">
+								<span class="field">
+								<span class="<#ERROR name='ERRORPhotoArticleAuthor'>">
+										Author of Article, Chapter, Paper, etc. 
+									</span>
+								</span>
+							</label>
+							<input type="text" class="form-control" name="PhotoArticleAuthor" id="PhotoArticleAuthor" value="<#PARAM name='PhotoArticleAuthor'>">
+						</div>
+						
+						<h3>Journal/Book Info</h3>
+
+						<div class="form-group col-md-9">
+							<label for="PhotoJournalTitle">
+								<span class="field">
+									<span class="<#ERROR name='ERRORPhotoJournalTitle'>">
+										Title of Journal, Book, etc. in which article or chapter appears.
+										<span class="req">*</span>
+									</span>
+									<!-- <br>
+										<span class="small-notes">
+											Title in which article or chapter appears.
+										</span> -->
+									<!-- <br>
+										<span class="small-notes">
+											Please do not abbreviate unless your citation is abbreviated. 
+										</span> -->
+								</span>
+								<br>
+							</label>
+							<input type="text" class="form-control" name="PhotoJournalTitle" id="PhotoJournalTitle" value="<#PARAM name='PhotoJournalTitle'>" required>	
+						</div>
+
+						
+						<div class="form-group col-md-9">
+							<label for="PhotoJournalVolume">
+								<span class="field">
+									<span class="<#ERROR name='ERRORPhotoJournalVolume'>">
+										Volume
+									</span>
+								</span>
+							</label>
+							<input type="text" class="form-control" name="PhotoJournalVolume" id="PhotoJournalVolume" value="<#PARAM name='PhotoJournalVolume'>">
+						</div>
+								
+						<div class="form-group col-md-9">
+							<label for="PhotoJournalIssue">
+								<span class="field">
+									<span class="<#ERROR name='ERRORPhotoJournalIssue'>">
+										Issue Number
+									</span>
+								</span>
+							</label>
+							<input type="text" class="form-control" name="PhotoJournalIssue" id="PhotoJournalIssue" value="<#PARAM name='PhotoJournalIssue'>">
+						</div>
+								
+						<div class="form-group col-md-9">
+							<label for="PhotoJournalMonth">
+								<span class="field">
+									<span class="<#ERROR name='ERRORPhotoJournalMonth'>">
+										Month of publication
+									</span>
+								</span>
+							</label>
+							<input type="text" class="form-control" name="PhotoJournalMonth" id="PhotoJournalMonth" value="<#PARAM name='PhotoJournalMonth'>">
+						</div>
+							
+						<div class="form-group col-md-9">
+							<label for="PhotoJournalYear">
+								<span class="field">
+									<span class="<#ERROR name='ERRORPhotoJournalYear'>">
+										Year of publication
+										<span class="req">*</span>
+									</span>
+									<!-- <br>
+									<span class="small-notes">
+										Year of journal volume or book publication
+									</span> -->
+								</span>
+							</label>
+							<input type="text" class="form-control" name="PhotoJournalYear" id="PhotoJournalYear" value="<#PARAM name='PhotoJournalYear'>" required>
+						</div>
+					
+						<div class="form-group col-md-9">
+							<label for="PhotoJournalInclusivePages">
+								<span class="field">
+									<span class="<#ERROR name='ERRORPhotoJournalInclusivePages'>">
+										Inclusive Pages   
+										<span class="req">*</span>
+									</span>
+									<br>
+									<span class="small-notes">
+										Also include any End Notes, Plates, etc.
+									</span>
+								</span>
+							</label>
+							<input type="text" class="form-control" name="PhotoJournalInclusivePages" id="PhotoJournalInclusivePages" value="<#PARAM name='PhotoJournalInclusivePages'>" required>
+						</div>
+								
+						<div class="form-group col-md-9">
+							<label for="ISSN">
+								<span class="field">
+									<span class="<#ERROR name='ERRORISSN'>"> 
+										ISSN/ISBN
+									</span>
+								<br>
+									<span class="small-notes">
+										(International Standard Serial/Book Number)
+									</span>
+								<br>
+									<span class="small-notes">
+										If given will speed request processing
+									</span>
+								</span>
+							</label>
+							<input type="text" class="form-control" name="ISSN" id="ISSN" value="<#PARAM name='ISSN'>">
+						</div>
+
+						<h3>Delivery Info</h3>
+
+						<div class="form-group col-md-9">
+							<label for="NotWantedAfter">
+								<span class="field">
+									<span class="<#ERROR name='ERRORNotWantedAfter'>"> 
+										Not Wanted After Date
+									</span>
+								</span>
+							</label>
+							<input type="text" class="form-control" name="NotWantedAfter" id="NotWantedAfter" value="<#PARAM name='NotWantedAfter'>">
+							<span class="small-notes">
+								(MM/DD/YYYY)
+							</span>
+						</div>
+
+						<div class="form-group col-md-9">
+							<label for="ItemInfo4">
+								<span class="field">
+									<span class="<#ERROR name='ItemInfo4'>"> 
+										If this is a course required reading, please add the Course Code
+									</span>
+								</span>
+							</label>
+							<input type="text" class="form-control" name="ItemInfo4" id="ItemInfo4" value="<#PARAM name='ItemInfo4'>">
+						</div>
+								
+						<div class="form-group col-md-9">
+							<label for="AcceptNonEnglish">
+								<span class="field">
+									<span class="<#ERROR name='ERRORAcceptNonEnglish'>">
+										Will you accept the item in a language other than English?  
+									</span>
+								</span>
+							</label>
+							<select id="AcceptNonEnglish" name="AcceptNonEnglish" size="1" class="form-control">
+								<option selected><#PARAM name='AcceptNonEnglish'></option>
+								<option value="no">No</option>
+								<option value="yes">Yes</option>
+							</select>
+						</div>
+
+						<div class="form-group col-md-9 hidden-field" id="AcceptableLanguages">
+							<label for="AcceptableLanguages">
+								<span class="field">
+									<span class="<#ERROR name='ERRORNotes'>">  
+										Acceptable languages:   
+									</span>
+								</span>
+							</label>
+							<input type="text" class="form-control" id="AcceptableLanguagesInput" name="AcceptableLanguages">
+						</div>
+					
+						<div class="form-group col-md-9">
+							<label for="CitedIn">
+								<span class="field">
+									<span class="<#ERROR name='ERRORCitedIn'>">
+										Where did you find this item cited?
+									</span>
+								</span>
+							</label>
+							<textarea id="ERRORCitedIn" name="ERRORCitedIn" rows="2" cols="40" class="form-control" placeholder="Examples: WorldCat, CINHAL, PsycInfo, etc."><#PARAM name='ERRORCitedIn'></textarea>
+						</div>
+						
+						<div class="form-group col-md-9" id="notes-div">
+							<label for="NotesField">
+								<span class="field">
+									<span class="<#ERROR name='ERRORNotes'>">  
+										Notes   
+									</span><br>
+									<span class="small-notes">Put any information here that may help us find the item, as well as any other pertinent information.</span>
+								</span>
+							</label>
+							<textarea id="NotesField" name="NotesField" rows="2" cols="40" class="form-control"></textarea>
+						</div>
 
                         </section>
                         <#INCLUDE filename="include_request_cited.html">                
