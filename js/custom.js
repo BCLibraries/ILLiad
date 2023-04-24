@@ -57,5 +57,5 @@ $(document).ready(function () {
     /*
     For making the select only two options lol
     */
-    $('select option[value="<#PARAM name='AcceptNonEnglish'>"]').attr('selected','true');
+   /* $('select option[value="<#PARAM name='AcceptNonEnglish'>"]').attr('selected','true');*/
 });
