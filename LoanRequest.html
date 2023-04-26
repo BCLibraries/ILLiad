@@ -22,11 +22,15 @@
 				
 				<fieldset>
 
-					<h2 class="page-header">Loan Request</h2>
-					<span class="form-notes"><strong>Use this form to request a physical item: Book, Dissertation, Music Score, Microfilm, Microfiche, DVD, etc.</strong></span>
-					<span class="form-notes">Request only one item per form.</span>
-					<span class="form-notes">Delivery of interlibrary loan requests depends on the availability of interlibrary loan services at other institutions.</span>
-					
+					<div class="form-header">
+						<h2 class="page-header">Loan Request</h2>
+						<span class="form-notes"><strong>Use this form to request a physical item: Book, Dissertation, Music Score, Microfilm, Microfiche, DVD, etc.</strong>
+							<br>
+							Request only one item per form.
+							<br>
+							Delivery of interlibrary loan requests depends on the availability of interlibrary loan services at other institutions.</span>
+					</div>
+
 					<section name="bookrequest-info">
 					<h3>Item Info</h3>
 						<div class="form-group col-md-9">
@@ -205,9 +209,8 @@
 								</span>
 							</label>
 							<select id="AcceptNonEnglish" name="AcceptNonEnglish" size="1" class="form-control">
-								<option selected><#PARAM name='AcceptNonEnglish'></option>
-								<option value="no">No</option>
-								<option value="yes">Yes</option>
+								<option value="<#PARAM name='AcceptNonEnglish'>" selected><#PARAM name='AcceptNonEnglish'></option>
+								<option value="Yes">Yes</option>
 							</select>
 						</div>
 

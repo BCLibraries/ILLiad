@@ -5,11 +5,27 @@ Custom JS for request page functions
 $(document).ready(function () {
 
     /*
+    For making the select only two options lol
+    */
+
+    if ($('#AcceptNonEnglish :selected').text().toLowerCase() == 'yes') {
+        $('#AcceptNonEnglish option:last-child').val('No');
+        $('#AcceptNonEnglish option:last-child').text('No');
+    }
+
+    /*
+    Determine whether the form is for a physical item
+    */
+
+    var isLoan = false;
+    if ($("#ItemInfo1").length) { isLoan = true; }
+
+    /*
     Listeners for displaying hidden fields
     */
 
     document.getElementById('AcceptNonEnglish').onchange=function(){
-        if (document.getElementById('AcceptNonEnglish').value == 'yes') {
+        if (document.getElementById('AcceptNonEnglish').value.toLowerCase() == 'yes') {
             document.getElementById('AcceptableLanguages').style.display='block';
             document.getElementById('AcceptableLanguages').classList.add('flash');
             setTimeout(function() {
@@ -18,14 +34,16 @@ $(document).ready(function () {
         } else { document.getElementById('AcceptableLanguages').style.display='none'; }
     }
 
-    document.getElementById('ItemInfo1').onchange=function(){
-        if (document.getElementById('ItemInfo1').value == 'Remote User') {
-            document.getElementById('remote-user').style.display='block';
-            document.getElementById('remote-user').classList.add('flash');
-            setTimeout(function() {
-                document.getElementById('remote-user').classList.remove('flash');
-            }, 300);
-        } else { document.getElementById('remote-user').style.display='none'; }
+    if (isLoan) {
+        document.getElementById('ItemInfo1').onchange=function(){
+            if (document.getElementById('ItemInfo1').value == 'Remote User') {
+                document.getElementById('remote-user').style.display='block';
+                document.getElementById('remote-user').classList.add('flash');
+                setTimeout(function() {
+                    document.getElementById('remote-user').classList.remove('flash');
+                }, 300);
+            } else { document.getElementById('remote-user').style.display='none'; }
+        }
     }
 
     /*
@@ -34,28 +52,25 @@ $(document).ready(function () {
     
     $("#AcceptableLanguages").on('change', '#AcceptableLanguagesInput', updateNotes);
     $("#notes-div").on('change', '#NotesField', updateNotes);
-    $("#remote-user").on('change', '#RemoteUser', updateNotes);
+    if (isLoan) { $("#remote-user").on('change', '#RemoteUser', updateNotes); }
     
     function updateNotes() {
         var value = '';
         if ($('#AcceptableLanguagesInput').val().length != 0) {
-            value += 'Acceptable languages:\n' + $('#AcceptableLanguagesInput').val();
+            value += 'Acceptable languages: ' + $('#AcceptableLanguagesInput').val();
         }
 
-        if ($('#RemoteUser').val().length != 0) {
-            value += '\n-----\nRemote User Address:\n' + $('#RemoteUser').val();
+        if (isLoan) {
+            if ($('#RemoteUser').val().length != 0) {
+                value += '\n-----\nRemote User Address:\n' + $('#RemoteUser').val();
+            }
         }
 
         if ($('#NotesField').val().length != 0) {
-            value += '\n-----\nNotes:\n' + $('#NotesField').val();
+            value += '\n-----\nNotes: ' + $('#NotesField').val();
         }
         
         $('#Notes').val(value);
         console.log($('#Notes').val());
     }
-
-    /*
-    For making the select only two options lol
-    */
-   /* $('select option[value="<#PARAM name='AcceptNonEnglish'>"]').attr('selected','true');*/
 });

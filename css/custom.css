@@ -48,6 +48,10 @@ a:focus-visible,
   margin: 0;
 }
 
+.form-header {
+  padding-left: 15px;
+}
+
 .main-navbar {
   background-color: #501315;
 }

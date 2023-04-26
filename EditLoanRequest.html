@@ -19,7 +19,7 @@
 						
 				<fieldset>
 		
-					<h2 class="page-header">Edit Loan Request: Transaction Number <#PARAM name='TransactionNumber'></h2>
+					<h2 class="form-header page-header">Edit Loan Request: Transaction Number <#PARAM name='TransactionNumber'></h2>
 					<section name="editbookrequest-info">
 								
 						<h3>Item Info</h3>
@@ -199,9 +199,8 @@
 								</span>
 							</label>
 							<select id="AcceptNonEnglish" name="AcceptNonEnglish" size="1" class="form-control">
-								<option selected><#PARAM name='AcceptNonEnglish'></option>
-								<option value="no">No</option>
-								<option value="yes">Yes</option>
+								<option value="<#PARAM name='AcceptNonEnglish'>" selected><#PARAM name='AcceptNonEnglish'></option>
+								<option value="Yes">Yes</option>
 							</select>
 						</div>
 

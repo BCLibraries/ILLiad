@@ -23,10 +23,14 @@
 					
 				<fieldset>	
 
-					<h2 class="page-header">Copy Request</h2>
-					<span class="form-notes"><strong>Use this form to request a PDF of a portion of a work: Journal Article, Book Chapter, Paper in a Conference Proceedings, Copy from Microfilm, etc.</strong></span>
-					<span class="form-notes">Request only one article or chapter per form.</span>
-					<span class="form-notes">Delivery of interlibrary loan requests depends on the availability of interlibrary loan services at other institutions.</span>
+					<div class="form-header">
+						<h2 class="page-header">Copy Request</h2>
+						<span class="form-notes"><strong>Use this form to request a PDF of a portion of a work: Journal Article, Book Chapter, Paper in a Conference Proceedings, Copy from Microfilm, etc.</strong>
+							<br>
+							Request only one article or chapter per form.
+							<br>
+							Delivery of interlibrary loan requests depends on the availability of interlibrary loan services at other institutions.</span>
+					</div>
 					
 					<section name="article-info">
 					<h3>Article/Chapter Info</h3>
@@ -212,9 +216,8 @@
 								</span>
 							</label>
 							<select id="AcceptNonEnglish" name="AcceptNonEnglish" size="1" class="form-control">
-								<option selected><#PARAM name='AcceptNonEnglish'></option>
-								<option value="no">No</option>
-								<option value="yes">Yes</option>
+								<option value="<#PARAM name='AcceptNonEnglish'>" selected><#PARAM name='AcceptNonEnglish'></option>
+								<option value="Yes">Yes</option>
 							</select>
 						</div>
 
