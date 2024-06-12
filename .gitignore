@@ -1,5 +1,4 @@
 *
-!.gitignore
 !AboutILLiad.html
 !ArticleRequest.html
 !Blocked.html
@@ -128,6 +127,7 @@
 !css/main.css
 !css/mobile.css
 !css/print.css
+!include_bc_header.html
 !include_footer.html
 !include_head.html
 !include_header.html
@@ -139,4 +139,3 @@
 !include_request_cited.html
 !js/illiad.js
 !js/userNotificationPreferences.js
-!webpath.txt

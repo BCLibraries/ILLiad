@@ -1,0 +1,362 @@
+/* BOSTON COLLEGE COLORS */
+/* See https://www.bc.edu/bc-web/styles/bc-web-style-guide/color.html */
+/* BC Brand colors */
+/* Primary palette */
+/* Secondary palette */
+/* LOCAL COLORS */
+/* Text colors */
+/* Body colors (borders, backgrounds, etc) */
+/*
+Style overrides for default ILLiad webpages
+*/
+body {
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: #8a100b;
+}
+
+a:focus,
+a:focus-visible,
+.btn:focus,
+.btn:focus-visible {
+  box-shadow: none;
+}
+
+.alert-secondary {
+  background-color: #dccaa0;
+}
+
+.head {
+  background-color: #fff;
+}
+
+#illiad-title {
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+.my-4 {
+margin-top: 1rem!important;
+margin-bottom: 1rem!important;
+}
+
+section>h3 {padding-left: 15px;}
+section>h3:not(:first-child) {padding-top: 0.75rem;}
+
+.small-notes {
+font-size: 0.75rem;
+}
+
+.form-header {
+  padding-left: 30px;
+}
+
+.main-navbar {
+  background-color: #501315;
+}
+
+.foot {
+  font-size: 0.75rem;
+}
+
+.logon-wrapper {
+  margin: 2rem auto 4rem;
+}
+
+.center-form {
+  margin: 1rem auto;
+}
+
+/*
+Form style overrides
+*/
+label {
+  font-weight: bold;
+}
+
+.req {
+  font-size: 16px;
+}
+
+.row { margin: 0; }
+
+form section {
+  background-color: #f4f3ee;
+}
+
+select.form-control[multiple],
+select.form-control[size] {
+  width: auto;
+}
+
+.form-notes {
+  margin-bottom: 1.5rem;
+}
+
+.form-control-small {
+max-width: 33%;
+}
+
+.tooltip-inner { max-width: none; }
+
+.tooltip { max-width: 50%; pointer-events: none;}
+
+.fa {
+text-decoration: none;
+}
+
+.card { border-left:none; border-right:none; border-top: none; }
+//.card:last-child { border-bottom:none; }
+
+//.card {border:none;}
+//.card:nth-child(even) { background-color: #f6f6f6;}
+
+
+/*
+Button style overrides
+*/
+.btn-primary {
+  background-color: #501315;
+  border: none;
+}
+
+.btn-primary:disabled {
+  background-color: #726158;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #8a100b;
+  border: none;
+  color: #fff;
+}
+
+.btn-primary:active {
+  background-color: white;
+}
+
+.btn-secondary {
+  background-color: #dccaa0;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #b29d6c;
+  border: none;
+  color: #fff;
+}
+
+/*
+For the hidden form fields
+*/
+.hidden-field {
+  display: none;
+  transition: 0.3s;
+}
+
+.flash .field {
+  -webkit-animation-name: flash-animation;
+  -webkit-animation-duration: 0.3s;
+  animation-name: flash-animation;
+  animation-duration: 0.3s;
+}
+
+@-webkit-keyframes flash-animation {
+  from {
+    background: rgba(255, 238, 170, 0.7);
+  }
+  to {
+    background: default;
+  }
+}
+@keyframes flash-animation {
+  from {
+    background: rgba(255, 238, 170, 0.7);
+  }
+  to {
+    background: default;
+  }
+}
+/* 
+top level maroon bar
+*/
+#bclib-header {
+  box-sizing: border-box;
+  background: #8a100b no-repeat 100% 0%;
+  color: #fff;
+  height: 38px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+#bctitle {
+  height: auto;
+}
+
+#bclib-header a {
+  text-decoration: none;
+}
+
+#skiplink {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  text-align: left;
+  overflow: hidden;
+}
+
+#skiplink:active,
+#skiplink:focus,
+#skiplink:hover {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  background-color: #fff;
+  padding: 4px;
+}
+
+#bclib-header a {
+  color: #fff;
+}
+
+#bclib-header a:hover,
+#bclib-header a:focus {
+  color: #dccaa0;
+  text-decoration: none;
+}
+
+#bclib-header.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#bclib-header .container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  line-height: 1;
+}
+
+#bclib-header .row {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+#bclib-header .col-md-12,
+#bclib-header .col-md-6 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+#bclib-header a.bclib-header-logo img.logo-small {
+  padding-top: 4px;
+}
+
+#bclib-header a.bclib-header-logo p {
+  background: none;
+  display: none;
+}
+
+#bclib-header ul.bclib-header-links {
+  list-style: none;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  text-transform: uppercase;
+  /* we want height = 30px */
+  /*    15 * 2      = 30   */
+  /*    14 * 2.143 ~= 30   */
+  /*    13 * 2.308 ~= 30   */
+  /*    12 * 2.5    = 30   */
+  font-size: 14px;
+  line-height: 2.143;
+}
+
+#bclib-header ul.bclib-header-links li {
+  display: inline;
+  margin: 0 10px;
+}
+
+#bclib-header ul.bclib-header-links li:first-child {
+  margin-left: 0px;
+}
+
+#bclib-header ul.bclib-header-links li:last-child {
+  margin-right: 0px;
+}
+
+#bclib-header ul.bclib-header-links li .fa {
+  font-size: 14px;
+}
+
+#bclib-header #bclib-header-form,
+#bclib-header input#bclib-header-search,
+#bclib-header .input-group-btn .btn {
+  height: 28px;
+}
+
+#bclib-header #bclib-header-form form {
+  display: flex;
+}
+
+/* Safari doesn't play well with floated elements and flex display */
+#bclib-header #bclib-header-form form:before,
+#bclib-header #bclib-header-form form:after {
+  display: none !important;
+}
+
+#bclib-header input#bclib-header-search {
+  font-size: 14px;
+  color: #000;
+  /*padding: 2px 0 2px 4px;*/
+  border-right: 0;
+  border-radius: 0;
+}
+
+#bclib-header .input-group-btn .btn {
+  padding: 0 8px;
+  border-radius: 0;
+}
+
+
+@media (max-width: 480px) {
+#bclib-header { height: auto; }
+#bclib-header ul.bclib-header-links { text-align: left;}
+#bclib-header .col-6 { max-width:100%; flex: none;}
+}
+
+/* end top level maroon bar *//*# sourceMappingURL=custom.css.map */
