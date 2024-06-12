@@ -15,18 +15,21 @@
         <main id="content" aria-label="Content">
 
             <div id="main-electronic-delivery">
-                <h2 class="header-special"><span aria-hidden="true" class="fas fa-file-alt fa-1x"></span> Electronically Received Articles</h2>
-                <#DATAREPEATER name="ElectronicDelivery" TemplateFile="templates/DataRow_ElectronicDelivery.html" noDataAction="You have no electronic delivery requests">
+                <h2 class="header-special"><span aria-hidden="true" class="fas fa-file-alt fa-1x"></span> Scan Requests</h2>
+				<h6 class="form-notes">Delivered Chapter and Article scans will remain on the server for 30 days.</h6>
+                <#DATAREPEATER name="ElectronicDelivery" TemplateFile="templates/DataRow_ElectronicDelivery.html" noDataAction="You have no scan requests">
+				
             </div> 
-
-            <div id="main-renew-checked-out-items">
-                <h2 class="header-special"><span aria-hidden="true" class="fas fa-book-open fa-1x"></span> Checked Out Items</h2>
-                <#DATAREPEATER name="ViewRenewCheckedOutItems" TemplateFile="templates/DataRow_CheckedOutItems.html" noDataAction="You have no items">            
-            </div>
 
             <div id="main-outstanding-requests">
                 <h2 class="header-special"><span aria-hidden="true" class="fas fa-list-alt fa-1x"></span> Outstanding Requests</h2>            
-                <#DATAREPEATER name="ViewOutstandingRequests" TemplateFile="templates/DataRow_DefaultRequest.html" noDataAction="You have no requests" orderby="TransactionNumber">
+                <#DATAREPEATER name="ViewOutstandingRequests" TemplateFile="templates/DataRow_DefaultRequest.html" noDataAction="You have no outstanding requests" orderby="TransactionNumber">
+            </div>
+			
+			<div id="main-renew-checked-out-items">
+			<h2 class="header-special"><span aria-hidden="true" class="fas fa-book-open fa-1x"></span> Loans</h2>
+			<h6 class="form-notes"> Log in to My Library Account to view your current physical loans (books, media, microforms).</h6>
+			<a class="btn btn-primary" href="https://bc-primo.hosted.exlibrisgroup.com/primo-explore/account?vid=bclib_new" target="_blank" rel="noopener noreferrer">My Library Account</a>    
             </div>
         </main>
         <#INCLUDE filename="include_footer.html">    

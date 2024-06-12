@@ -2,9 +2,15 @@
 <html lang="en-US">
 
 <head>
-	<title>ILL | Copy Request</title>
+	<title>ILL | Scan Request</title>
 	<#INCLUDE filename="include_head.html">
-	<script src="js/custom.js"></script>
+	<script type="text/javascript" src="js/DOIPMIDResolver_LK.js?v=1.0" defer></script>
+
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip({ boundary: 'window' })
+})
+</script>
 </head>
 
 <body>
@@ -18,37 +24,67 @@
 				<input type="hidden" name="ESPNumber" value="<#PARAM name='ESPNumber'>">
 				<input type="hidden" name="CallNumber" value="<#PARAM name='CallNumber'>">
 				<input type="hidden" name="NotWantedAfter" value="<#PARAM name='NotWantedAfter'>">
-				<input type="hidden" name="Notes" id="Notes" value="<#PARAM name='Notes'>">
 				<#FORMSTATE>
 					
 				<fieldset>	
 
-					<div class="form-header">
-						<h2 class="page-header">Copy Request</h2>
-						<span class="form-notes"><strong>Use this form to request a PDF of a portion of a work: Journal Article, Book Chapter, Paper in a Conference Proceedings, Copy from Microfilm, etc.</strong>
-							<br>
-							Request only one article or chapter per form.
-							<br>
-							Delivery of interlibrary loan requests depends on the availability of interlibrary loan services at other institutions.</span>
+					<div class="form-header col">
+						<h2>Scan Request</h2>
+						<h6 class="form-notes">Use this form to request a portion of a work: Journal Article, Book Chapter, Paper in a Conference Proceedings, Scan from Microfilm, etc.</span>
 					</div>
 					
-					<section name="article-info">
-					<h3>Article/Chapter Info</h3>
+					<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#doi-resolver" aria-expanded="false" aria-controls="doi-resolver">
+						<i class="fas fa-star pr-1"></i>Autofill Citation Information with a DOI or PubMed ID
+					</button>
+  
+					<section name="doi-resolver" id="doi-resolver" class="collapse">
+					
 						<div class="form-group col-md-9">
 							<label for="DOI">
 								<span class="field">
 									<span class="<#ERROR name='DOI'>">
 										DOI   
 									</span>
-									<br>
-									<span class="small-notes">
-										If given will speed request processing
-									</span>
+									<a data-toggle="tooltip" data-placement="right" title="A Digital Object Identifier (DOI) is a string of numbers, letters and symbols used to uniquely identify an article or document, and to provide it with a permanent web address. This DOI resolver will take a DOI unique identifier number and complete the citation information on this article request form. If you have already imported the citation from a database or Primo search, there is no need to look up the citation with the identifiers." class="fa fa-question-circle"></a>
 								</span>
 							</label>
 							<input type="text" class="form-control" name="DOI" id="DOI" value="<#PARAM name='DOI'>">
+							<button type="button" id="doibutton" class="btn btn-primary btn-md c-doi" onclick="resolveDOI()">Look Up Citation Information by DOI 
+							</button> 	
+							<br>
+                            <span class="note text-danger" id="doierrormessage"></span>
 						</div>
-
+						
+						<div class="form-group col-md-9">
+                            <label for="PMID">
+                                <span class="field">
+                                    <span class="<#ERROR name='ERRORPMID'>">
+                                        PubMed ID
+									</span>
+									<a data-toggle="tooltip" data-placement="right" title="This PMID resolver will take a PubMed unique identifier number and complete the citation information on this article request form. If you have already imported the citation from a database or Primo search, there is no need to look up the citation with the identifiers." class="fa fa-question-circle"></a>						
+                                </span>
+                            </label>
+                            <input type="text" class="form-control" name="PMID" id="PMID" value="<#PARAM name='PMID'>">
+                            <button type="button" id="pmidbutton" class="btn btn-primary btn-md c-doi" onclick="resolvePMID()">Look Up Citation Information by PMID</button><br>
+                            <span class="note text-danger" id="pmiderrormessage"></span>
+                        </div>
+						
+						<div aria-live="polite">
+                            <div id="oaloading" style="display:none">
+                                <div class="spinner-border text-warning" role="status"><span class="sr-only">Looking up full text access...</span></div>
+                                <span class="note">Looking up full text access...</span>
+                            </div>
+                            <div id="openaccessdiv" style="display:none">
+                                <span class="note">*The article is available through a library subscription or open access. If the link is NOT correct, please continue to submit your request.</span><br/>
+                                <button type="button" class="btn btn-primary btn-md c-open" id="openaccessbutton">View/Download Full Text <span aria-hidden="true" class="fas fa-file-alt"></span></button><br/>
+								<button class="btn btn-secondary btn-md" type="reset" id="buttonReset" name="ResetButton" value="Clear Form">Reset form</button>
+                            </div>
+                        </div>
+			
+					</section>
+					
+					<section name="article-info">
+					<h4 class="col">Article/Chapter Information</h4>
 						<div class="form-group col-md-9">
 							<label for="PhotoArticleTitle">
 								<span class="field">
@@ -72,7 +108,23 @@
 							<input type="text" class="form-control" name="PhotoArticleAuthor" id="PhotoArticleAuthor" value="<#PARAM name='PhotoArticleAuthor'>">
 						</div>
 						
-						<h3>Journal/Book Info</h3>
+						<div class="form-group col-md-9">
+							<label for="DOI">
+								<span class="field">
+									<span class="<#ERROR name='DOI'>">
+										DOI   
+									</span>
+									<a data-toggle="tooltip" data-placement="right" title="A Digital Object Identifier (DOI) is a string of numbers, letters and symbols used to uniquely identify an article or document, and to provide it with a permanent web address." class="fa fa-question-circle"></a>
+									<br>
+									<span class="small-notes">
+										If given will speed request processing
+									</span>
+								</span>
+							</label>
+							<input type="text" class="form-control" name="DOI" id="DOI" value="<#PARAM name='DOI'>">
+						</div>
+						
+						<h4 class="col">Journal/Book Information</h4>
 
 						<div class="form-group col-md-9">
 							<label for="PhotoJournalTitle">
@@ -81,68 +133,59 @@
 										Title of Journal, Book, etc. in which article or chapter appears.
 										<span class="req">*</span>
 									</span>
-									<!-- <br>
-										<span class="small-notes">
-											Title in which article or chapter appears.
-										</span> -->
-									<!-- <br>
-										<span class="small-notes">
-											Please do not abbreviate unless your citation is abbreviated. 
-										</span> -->
 								</span>
 								<br>
 							</label>
 							<input type="text" class="form-control" name="PhotoJournalTitle" id="PhotoJournalTitle" value="<#PARAM name='PhotoJournalTitle'>" required>	
 						</div>
 
-						
-						<div class="form-group col-md-9">
-							<label for="PhotoJournalVolume">
-								<span class="field">
-									<span class="<#ERROR name='ERRORPhotoJournalVolume'>">
-										Volume
+						<div class="row">
+							<div class="form-group col-md-3">
+								<label for="PhotoJournalVolume">
+									<span class="field">
+										<span class="<#ERROR name='ERRORPhotoJournalVolume'>">
+											Volume
+										</span>
 									</span>
-								</span>
-							</label>
-							<input type="text" class="form-control" name="PhotoJournalVolume" id="PhotoJournalVolume" value="<#PARAM name='PhotoJournalVolume'>">
-						</div>
-								
-						<div class="form-group col-md-9">
-							<label for="PhotoJournalIssue">
-								<span class="field">
-									<span class="<#ERROR name='ERRORPhotoJournalIssue'>">
-										Issue Number
+								</label>
+								<input type="text" class="form-control" name="PhotoJournalVolume" id="PhotoJournalVolume" value="<#PARAM name='PhotoJournalVolume'>">
+							</div>
+									
+							<div class="form-group col-md-3">
+								<label for="PhotoJournalIssue">
+									<span class="field">
+										<span class="<#ERROR name='ERRORPhotoJournalIssue'>">
+											Issue Number
+										</span>
 									</span>
-								</span>
-							</label>
-							<input type="text" class="form-control" name="PhotoJournalIssue" id="PhotoJournalIssue" value="<#PARAM name='PhotoJournalIssue'>">
+								</label>
+								<input type="text" class="form-control" name="PhotoJournalIssue" id="PhotoJournalIssue" value="<#PARAM name='PhotoJournalIssue'>">
+							</div>
 						</div>
-								
-						<div class="form-group col-md-9">
-							<label for="PhotoJournalMonth">
-								<span class="field">
-									<span class="<#ERROR name='ERRORPhotoJournalMonth'>">
-										Month of publication
+
+					<div class="row">
+							<div class="form-group col-md-3">
+								<label for="PhotoJournalYear">
+									<span class="field">
+										<span class="<#ERROR name='ERRORPhotoJournalYear'>">
+											Year of publication
+											<span class="req">*</span>
+										</span>
 									</span>
-								</span>
-							</label>
-							<input type="text" class="form-control" name="PhotoJournalMonth" id="PhotoJournalMonth" value="<#PARAM name='PhotoJournalMonth'>">
-						</div>
+								</label>
+								<input type="text" class="form-control" name="PhotoJournalYear" id="PhotoJournalYear" value="<#PARAM name='PhotoJournalYear'>" required>
+							</div>
 							
-						<div class="form-group col-md-9">
-							<label for="PhotoJournalYear">
-								<span class="field">
-									<span class="<#ERROR name='ERRORPhotoJournalYear'>">
-										Year of publication
-										<span class="req">*</span>
+							<div class="form-group col-md-3">
+								<label for="PhotoJournalMonth">
+									<span class="field">
+										<span class="<#ERROR name='ERRORPhotoJournalMonth'>">
+											Month of publication
+										</span>
 									</span>
-									<!-- <br>
-									<span class="small-notes">
-										Year of journal volume or book publication
-									</span> -->
-								</span>
-							</label>
-							<input type="text" class="form-control" name="PhotoJournalYear" id="PhotoJournalYear" value="<#PARAM name='PhotoJournalYear'>" required>
+								</label>
+								<input type="text" class="form-control" name="PhotoJournalMonth" id="PhotoJournalMonth" value="<#PARAM name='PhotoJournalMonth'>">
+							</div>
 						</div>
 					
 						<div class="form-group col-md-9">
@@ -166,11 +209,7 @@
 								<span class="field">
 									<span class="<#ERROR name='ERRORISSN'>"> 
 										ISSN/ISBN
-									</span>
-								<br>
-									<span class="small-notes">
-										(International Standard Serial/Book Number)
-									</span>
+									</span><a data-toggle="tooltip" data-placement="right" title="International Standard Serial/Book Number" class="fa fa-question-circle"></a>
 								<br>
 									<span class="small-notes">
 										If given will speed request processing
@@ -180,9 +219,7 @@
 							<input type="text" class="form-control" name="ISSN" id="ISSN" value="<#PARAM name='ISSN'>">
 						</div>
 
-						<h3>Delivery Info</h3>
-
-						<div class="form-group col-md-9">
+						<!--<div class="form-group col-md-9">
 							<label for="NotWantedAfter">
 								<span class="field">
 									<span class="<#ERROR name='ERRORNotWantedAfter'>"> 
@@ -194,43 +231,7 @@
 							<span class="small-notes">
 								(MM/DD/YYYY)
 							</span>
-						</div>
-
-						<div class="form-group col-md-9">
-							<label for="ItemInfo4">
-								<span class="field">
-									<span class="<#ERROR name='ItemInfo4'>"> 
-										If this is a course required reading, please add the Course Code
-									</span>
-								</span>
-							</label>
-							<input type="text" class="form-control" name="ItemInfo4" id="ItemInfo4" value="<#PARAM name='ItemInfo4'>">
-						</div>
-								
-						<div class="form-group col-md-9">
-							<label for="AcceptNonEnglish">
-								<span class="field">
-									<span class="<#ERROR name='ERRORAcceptNonEnglish'>">
-										Will you accept the item in a language other than English?  
-									</span>
-								</span>
-							</label>
-							<select id="AcceptNonEnglish" name="AcceptNonEnglish" size="1" class="form-control">
-								<option value="<#PARAM name='AcceptNonEnglish'>" selected><#PARAM name='AcceptNonEnglish'></option>
-								<option value="Yes">Yes</option>
-							</select>
-						</div>
-
-						<div class="form-group col-md-9 hidden-field" id="AcceptableLanguages">
-							<label for="AcceptableLanguages">
-								<span class="field">
-									<span class="<#ERROR name='ERRORNotes'>">  
-										Acceptable languages:   
-									</span>
-								</span>
-							</label>
-							<input type="text" class="form-control" id="AcceptableLanguagesInput" name="AcceptableLanguages">
-						</div>
+						</div>-->
 					
 						<div class="form-group col-md-9">
 							<label for="CitedIn">
@@ -240,19 +241,18 @@
 									</span>
 								</span>
 							</label>
-							<textarea id="ERRORCitedIn" name="ERRORCitedIn" rows="2" cols="40" class="form-control" placeholder="Examples: WorldCat, CINHAL, PsycInfo, etc."><#PARAM name='ERRORCitedIn'></textarea>
+							<textarea class="form-control" id="CitedIn" name="CitedIn" rows="1" cols="40" placeholder="Examples: WorldCat, CINHAL, PsycInfo, etc."><#PARAM name='ERRORCitedIn'></textarea>
 						</div>
 						
-						<div class="form-group col-md-9" id="notes-div">
-							<label for="NotesField">
+						<div class="form-group col-md-9">
+							<label for="Notes">
 								<span class="field">
 									<span class="<#ERROR name='ERRORNotes'>">  
 										Notes   
-									</span><br>
-									<span class="small-notes">Put any information here that may help us find the item, as well as any other pertinent information.</span>
+									</span>
 								</span>
 							</label>
-							<textarea id="NotesField" name="NotesField" rows="2" cols="40" class="form-control"></textarea>
+							<textarea id="Notes" name="Notes" rows="2" cols="40" class="form-control"><#PARAM name='Notes'></textarea><br>
 						</div>
 					</section>
 					<#INCLUDE filename="include_request_cited.html">                

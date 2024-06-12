@@ -48,8 +48,20 @@ a:focus-visible,
   margin: 0;
 }
 
+.my-4 {
+margin-top: 1rem!important;
+margin-bottom: 1rem!important;
+}
+
+section>h3 {padding-left: 15px;}
+section>h3:not(:first-child) {padding-top: 0.75rem;}
+
+.small-notes {
+font-size: 0.75rem;
+}
+
 .form-header {
-  padding-left: 15px;
+  padding-left: 30px;
 }
 
 .main-navbar {
@@ -79,8 +91,10 @@ label {
   font-size: 16px;
 }
 
+.row { margin: 0; }
+
 form section {
-  background-color: #edefef;
+  background-color: #f4f3ee;
 }
 
 select.form-control[multiple],
@@ -89,10 +103,27 @@ select.form-control[size] {
 }
 
 .form-notes {
-  display: block;
-  font-size: 14px;
-  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
 }
+
+.form-control-small {
+max-width: 33%;
+}
+
+.tooltip-inner { max-width: none; }
+
+.tooltip { max-width: 50%; pointer-events: none;}
+
+.fa {
+text-decoration: none;
+}
+
+.card { border-left:none; border-right:none; border-top: none; }
+//.card:last-child { border-bottom:none; }
+
+//.card {border:none;}
+//.card:nth-child(even) { background-color: #f6f6f6;}
+
 
 /*
 Button style overrides
@@ -319,6 +350,13 @@ top level maroon bar
 #bclib-header .input-group-btn .btn {
   padding: 0 8px;
   border-radius: 0;
+}
+
+
+@media (max-width: 480px) {
+#bclib-header { height: auto; }
+#bclib-header ul.bclib-header-links { text-align: left;}
+#bclib-header .col-6 { max-width:100%; flex: none;}
 }
 
 /* end top level maroon bar *//*# sourceMappingURL=custom.css.map */

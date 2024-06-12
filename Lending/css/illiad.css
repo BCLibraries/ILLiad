@@ -1,7 +1,7 @@
 /*
 LEGAL
 =====
-Copyright 2022 Atlas Systems, Inc. http://www.atlas-sys.com
+Copyright 2023 Atlas Systems, Inc. http://www.atlas-sys.com
 */
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
@@ -144,6 +144,10 @@ ul {
     text-align: right;
 }
 
+.validationError {
+    color: #b81f18;
+}
+
 .fas {
     font-size: 16px;
 }
@@ -251,6 +255,10 @@ form section {
     text-decoration: underline;
 }
 
+#transaction-menu .btn:hover {
+    text-decoration: underline;
+}
+
 .badge-primary {
     background-color: #08415c;
 }
@@ -262,7 +270,7 @@ form section {
 
 /*These are CSS alert styling classes*/
 .btn-alert {
-    color: #c74827;
+    color: #b81f18;
     font-size: 14px;
     padding: 4px 12px 6px;
 }
@@ -423,8 +431,9 @@ a.offscreen:focus{
     --cc-btn-primary-text: #fff;
 }
 
-.theme_atlas .cc_div a{
-    color: var(--cc-btn-primary-bg);
+.theme_atlas .cc_div a, .theme_atlas .cc_div .cc-link {
+    border-color: #d6d6d6;
+    color: #d6d6d6;
 }
 
 .theme_atlas .cc_div #c-txt{

@@ -4,7 +4,28 @@
 <head>
 	<title>ILL | Edit Loan Request</title>
 	<#INCLUDE filename="include_head.html">
-	<script src="js/custom.js"></script>
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip({ boundary: 'window' })
+})
+
+window.onload = function() {
+	let x = document.getElementById("pickuploc").getAttribute("data");
+	let getLoc = () => {
+		switch (x) {
+		  case 'ONEILL': return "O'Neill Library";
+		  case 'BAPST': return "Bapst Library";
+		  case 'ERC': return "Educational Resource Center";
+		  case 'SWL': return "Social Work Libary";
+		  case 'TML': return "Theology & Ministry Library";
+		  case 'DISTANCE': return "Distance User";
+		  case 'BXM': return "O'Neill Library";
+		}
+	}
+	
+	document.getElementById("pickuploc").textContent=getLoc();
+}
+</script>
 </head>
 
 <body>
@@ -16,13 +37,13 @@
 			<form action="illiad.dll" method="post" name="EditLoanRequest">
 				<input type="hidden" name="ILLiadForm" value="EditLoanRequest">
 				<input type="hidden" name="TransactionNumber" value="<#PARAM name='TransactionNumber'>">
+				<input type="hidden" name="NotWantedAfter" value="<#PARAM name='NotWantedAfter'>">
 						
 				<fieldset>
 		
 					<h2 class="form-header page-header">Edit Loan Request: Transaction Number <#PARAM name='TransactionNumber'></h2>
-					<section name="editbookrequest-info">
-								
-						<h3>Item Info</h3>
+					<section name="bookrequest-info">
+					<h4 class="col">Item Information</h4>
 						<div class="form-group col-md-9">
 							<label for="LoanTitle">
 								<span class="field">
@@ -33,7 +54,6 @@
 								</span>
 							</label>
 							<input type="text" class="form-control" name="LoanTitle" id="LoanTitle" value="<#PARAM name='LoanTitle'>" required>
-							<span class="small-notes"><a href="https://library.bc.edu/catalog" tabindex="-1" target="_new">Did you check the Library Catalog to see if we own this book?</a></span>
 						</div>
 						
 						<div class="form-group col-md-9">  
@@ -49,28 +69,6 @@
 						</div>
 						
 						<div class="form-group col-md-9">
-							<label for="LoanPublisher">
-								<span class="field">
-									<span class="<#ERROR name='ERRORLoanPublisher'>">
-										Publisher
-									</span>
-								</span>
-							</label>
-							<input type="text" class="form-control" name="LoanPublisher" id="LoanPublisher" value="<#PARAM name='LoanPublisher'>">
-						</div>
-						
-						<div class="form-group col-md-9">
-							<label for="LoanPlace">
-								<span class="field">
-									<span class="<#ERROR name='ERRORLoanPlace'>">
-										Place of Publication
-									</span>
-								</span>
-							</label>
-							<input type="text" class="form-control" name="LoanPlace" id="LoanPlace" value="<#PARAM name='LoanPlace'>">
-						</div>
-						
-						<div class="form-group col-md-9">
 							<label for="LoanDate">
 								<span class="field">
 									<span class="<#ERROR name='ERRORLoanDate'>">
@@ -81,6 +79,31 @@
 							</label>
 							<input type="text" class="form-control" name="LoanDate" id="LoanDate" value="<#PARAM name='LoanDate'>" required>
 						</div>
+						
+						<div class="row">
+							<div class="form-group col-md-5">
+								<label for="LoanPublisher">
+									<span class="field">
+										<span class="<#ERROR name='ERRORLoanPublisher'>">
+											Publisher
+										</span>
+									</span>
+								</label>
+								<input type="text" class="form-control" name="LoanPublisher" id="LoanPublisher" value="<#PARAM name='LoanPublisher'>">
+							</div>
+							
+							<div class="form-group col-md-4">
+								<label for="LoanPlace">
+									<span class="field">
+										<span class="<#ERROR name='ERRORLoanPlace'>">
+											Place of Publication
+										</span>
+									</span>
+								</label>
+								<input type="text" class="form-control" name="LoanPlace" id="LoanPlace" value="<#PARAM name='LoanPlace'>">
+							</div>
+						</div>
+						
 					
 						<div class="form-group col-md-9">
 							<label for="LoanEdition">
@@ -98,7 +121,7 @@
 								<span class="field">
 									<span class="<#ERROR name='ERRORISSN'>">
 										ISBN
-									</span>
+									</span><a data-toggle="tooltip" data-placement="right" title="International Standard Book Number" class="fa fa-question-circle"></a>
 									<br>
 								<span class="small-notes">
 									If given will speed request processing
@@ -119,62 +142,8 @@
 							<input type="text" class="form-control" name="CallNumber" id="CallNumber" value="<#PARAM name='CallNumber'>">
 						</div>
 
-						<h3>Delivery Info</h3>
-
-						<div class="form-group col-md-9">
-							<label for="ItemInfo1">
-								<span class="field">
-									<span class="<#ERROR name='ItemInfo1'>">
-										Select pickup location
-										<span class="req">*</span>
-									</span>
-								</span>
-							</label>
-							<select id="ItemInfo1" name="ItemInfo1" size="1" class="custom-select mr-sm-2"  data-persistedValue="<#PARAM name='ItemInfo1'>" required>
-								<option>O'Neill Library</option>
-								<option>Bapst Library</option>
-								<option>Educational Resource Center</option>
-								<option>Social Work Library</option>
-								<option>Theology & Ministry Library</option>
-								<option value="Remote User">Remote User</option>
-							</select>
-						</div>
-
-						<div class="form-group col-md-9 hidden-field" id="remote-user">
-							<label for="RemoteUser">
-								<span class="field">
-									<span class="<#ERROR name='ERRORNotes'>">  
-										Please enter your mailing address:
-									</span>
-								</span>
-							</label>
-							<textarea id="RemoteUser" name="RemoteUser" rows="2" cols="40" class="form-control"></textarea>
-						</div>
-						
-						<div class="form-group col-md-9">
-							<label for="NotWantedAfter">
-								<span class="field">
-									<span class="<#ERROR name='ERRORNotWantedAfter'>"> 
-										Not Wanted After Date
-									</span>
-								</span>
-							</label>
-							<input type="text" class="form-control" name="NotWantedAfter" id="NotWantedAfter" value="<#PARAM name='NotWantedAfter'>">
-							<span class="small-notes">
-								(MM/DD/YYYY)
-							</span>
-						</div>
-
-						<div class="form-group col-md-9">
-							<label for="ItemInfo4">
-								<span class="field">
-									<span class="<#ERROR name='ItemInfo4'>"> 
-										If this is a course required reading, please add the Course Code
-									</span>
-								</span>
-							</label>
-							<input type="text" class="form-control" name="ItemInfo4" id="ItemInfo4" value="<#PARAM name='ItemInfo4'>">
-						</div>
+						<h4 class="col">Delivery Information</h4>
+<span class="alert alert-info d-block"><b>Current Pickup Location: <span id="pickuploc" data="<#PARAM name='NVTGC'>"></span>.</b> To change this, <a href="<#ACTION action='10' form='81'>">Update Pickup Location.</a></span>
 
 						<div class="form-group col-md-9">
 							<label for="AcceptAlternateEdition">
@@ -189,31 +158,6 @@
 								<option value="No">No</option>
 							</select>
 						</div>
-								
-						<div class="form-group col-md-9">
-							<label for="AcceptNonEnglish">
-								<span class="field">
-									<span class="<#ERROR name='ERRORAcceptNonEnglish'>">
-										Will you accept the item in a language other than English?  
-									</span>
-								</span>
-							</label>
-							<select id="AcceptNonEnglish" name="AcceptNonEnglish" size="1" class="form-control">
-								<option value="<#PARAM name='AcceptNonEnglish'>" selected><#PARAM name='AcceptNonEnglish'></option>
-								<option value="Yes">Yes</option>
-							</select>
-						</div>
-
-						<div class="form-group col-md-9 hidden-field" id="AcceptableLanguages">
-							<label for="AcceptableLanguages">
-								<span class="field">
-									<span class="<#ERROR name='ERRORNotes'>">  
-										Acceptable languages:   
-									</span>
-								</span>
-							</label>
-							<input type="text" class="form-control" id="AcceptableLanguagesInput" name="AcceptableLanguages">
-						</div>
 					
 						<div class="form-group col-md-9">
 							<label for="CitedIn">
@@ -223,21 +167,19 @@
 									</span>
 								</span>
 							</label>
-							<textarea id="ERRORCitedIn" name="ERRORCitedIn" rows="2" cols="40" class="form-control" placeholder="Examples: WorldCat, CINHAL, PsycInfo, etc."><#PARAM name='ERRORCitedIn'></textarea>
+							<textarea class="form-control" id="CitedIn" name="CitedIn" rows="1" cols="40" placeholder="Examples: WorldCat, CINHAL, PsycInfo, etc."><#PARAM name='ERRORCitedIn'></textarea>
 						</div>
 						
-						<div class="form-group col-md-9" id="notes-div">
-							<label for="NotesField">
+						<div class="form-group col-md-9">
+							<label for="Notes">
 								<span class="field">
 									<span class="<#ERROR name='ERRORNotes'>">  
 										Notes   
-									</span><br>
-									<span class="small-notes">Put any information here that may help us find the item, as well as any other pertinent information.</span>
+									</span>
 								</span>
 							</label>
-							<textarea id="NotesField" name="NotesField" rows="2" cols="40" class="form-control"></textarea>
+							<textarea id="Notes" name="Notes" rows="2" cols="40" class="form-control"><#PARAM name='Notes'></textarea><br>
 						</div>
-						
 					</section>
 					<#INCLUDE filename="include_request_cited.html">                
 					<#INCLUDE filename="include_request_buttons.html">

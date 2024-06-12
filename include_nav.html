@@ -9,7 +9,7 @@
 
       <li class="nav-item">
         <a class="nav-link" href="<#ACTION action='10' form='10'>">
-          <span aria-hidden="true" class="fas fa-home"></span>  Main Menu</a>
+          <span aria-hidden="true" class="fas fa-home"></span>  Home</a>
       </li>
 
       <li class="nav-item dropdown">
@@ -17,23 +17,14 @@
            <span aria-hidden="true" class="fas fa-book"></span>   New Request
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarNewRequest">
-          <a class="dropdown-item" href="<#ACTION action='10' form='22'>">Copy Request</a>
+          <a class="dropdown-item" href="<#ACTION action='10' form='22'>">Scan Request</a>
           <a class="dropdown-item" href="<#ACTION action='10' form='21'>">Loan Request</a>
-        <!--  <a class="dropdown-item" href="<#ACTION action='10' form='22'>">Article</a>
-          <a class="dropdown-item" href="<#ACTION action='10' form='21'>">Book</a>
-          <a class="dropdown-item" href="<#ACTION action='10' form='23'>">Book Chapter</a>
-          <a class="dropdown-item" href="<#ACTION action='10' form='24'>">Conference Paper</a>
-          <a class="dropdown-item" href="<#ACTION action='10' form='25'>">Patent</a>
-          <a class="dropdown-item" href="<#ACTION action='10' form='26'>">Report</a>
-          <a class="dropdown-item" href="<#ACTION action='10' form='27'>">Thesis</a>
-          <a class="dropdown-item" href="<#ACTION action='10' form='28'>">Standards Document</a>
-          <a class="dropdown-item" href="<#ACTION action='10' form='32'>">Multimedia</a>-->
         </div>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarOrderHistory" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span aria-hidden="true" class="fas fa-history"></span>  History
+          <span aria-hidden="true" class="fas fa-history"></span>  Request History
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarOrderHistory">
           <a class="dropdown-item" href="<#ACTION action='10' form='60'>"><span aria-hidden="true" class="fas fa-list-alt"></span> All Requests</a>
@@ -48,48 +39,26 @@
 
       <li class="nav-item">
         <a class="nav-link" href="<#ACTION action='10' form='2' value='ViewSearchResults'>">
-          <span aria-hidden="true" class="fas fa-search"></span>  Search
+          <span aria-hidden="true" class="fas fa-search"></span>  Search Requests
         </a>
       </li>
 
-   <!--   <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarMyProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span aria-hidden="true" class="fas fa-user"></span> Profile
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarMyProfile">
-          <a class="dropdown-item" href="<#ACTION action='10' form='81'>">
-            <span aria-hidden="true" class="fas fa-user-edit"></span>  Update Profile
-          </a>
-          <a class="dropdown-item" href="<#ACTION action='10' form='83'>">
-            <span aria-hidden="true" class="fas fa-key"></span>  Change Password
-          </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item disabled" type="text">
-            <span class="far fa-id-badge"></span>  Logged in as <#PARAM name='Username'>
-          </a>
-        </div>
-      </li>-->
+      <li class="nav-item">
+      	<a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://libguides.bc.edu/interlibrary-loan/policies">
+          <span aria-hidden="true" class="fas fa-info-circle"></span>  ILL Policies</a></li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarLoggedInAs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span aria-hidden="true" class="far fa-id-badge"></span>  <#PARAM name='Username'>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarLoggedInAs">
-          <a class="dropdown-item" href="<#ACTION action='99'>">
+			<a class="dropdown-item" href="<#ACTION action='10' form='81'>">
+            <span aria-hidden="true" class="fas fa-user-edit"></span>  Update Delivery Location</a>
+		<div class="dropdown-divider"></div>
+			<a class="dropdown-item" href="<#ACTION action='99'>">
             <span aria-hidden="true" class="fas fa-sign-out-alt"></span>  Logoff</a>
         </div>                  
       </li>
-
-  <!--   <li class="nav-item">
-        <span class="nav-link">
-          <span class="far fa-id-badge"></span>  <#PARAM name='Username'>
-        </span>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="<#ACTION action='99'>">
-           <span aria-hidden="true" class="fas fa-sign-out-alt"></span>  Logoff</a>
-      </li>--> 
     </ul>
   </div>
 </nav>

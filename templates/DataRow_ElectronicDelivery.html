@@ -47,6 +47,9 @@
 					<div class="field mb2 text-muted">
 						<span class="field-value font-weight-bold">
 							<#DATAROW field='TransactionStatus'>
+							<div class="field text-muted">
+								<span class="convert-local" data-iso8601="<#DATAROW field='TransactionDate' display='ISO8601'>"><#DATAROW field='TransactionDate'></span>
+							</div>
 						</span>
 					</div>
 				</div>	

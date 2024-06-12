@@ -18,18 +18,6 @@ $(document).ready(function () {
 	$('.statusNormal').addClass('alert alert-secondary d-block').attr('role','alert');
 	$('.statusError').addClass('alert alert-danger d-block').attr('role','alert');
 	$('.statusInformation').addClass('alert alert-info d-block').attr('role','alert');
-
-	$('.validationError').addClass('text-danger');
-	
-	
-	//Convert server times to the user's local time
-	$('.convert-local').each(function(index, element) {
-		ConvertTime(element);
-	});
-
-	$('*[data-iso8601]').each(function(index, element) {
-		ConvertTime(element);
-	});
 	
 	//Hide field-values if there is no value inside (when the field does not also have a class of showEmptyValue)
 	$('.field-value:empty').closest('.field:not(.showEmptyValue)').hide();
@@ -45,15 +33,40 @@ $(document).ready(function () {
 		$('#' + $(this).attr('data-form') + ' input:checkbox').prop('checked', false);
 	});
 
-	//Set the selected options based on a persistedValue attribute on the select element
-	//e.g. <SELECT name="dropdown" data-persistedValue="<#PARAM name='ItemInfo1'>"
-	$("select[data-persistedValue]").each( function() {
-        var persistedValue = $(this).attr("data-persistedValue");
-        $(this).find("option[value='" + persistedValue + "']").attr("selected", true);
-    });
+	//Set the selected options based on a persisted value attribute on the select element
+	//e.g. <SELECT name="dropdown" data-persisted-value="<#PARAM name='ItemInfo1'>"
+	//e.g. <input checked name="SearchType" type="radio" id="SearchTypeActive" value="Active" data-persisted-value="<#PARAM name='SearchType'>"></input>
+	$("select[data-persisted-value]").each(function(idx, el) { SelectPersistedValue(el) });
+	$("input[type=radio][data-persisted-value],input[type=checkbox][data-persisted-value]").each(function(idx, el) { SelectPersistedValue(el) });
+	//Legacy support if using "data-persistedValue"
+	$("select[data-persistedValue]").each(function(idx, el) { SelectPersistedValue(el, $(el).attr('data-persistedValue')) });
 });
 
 
+
+function SelectPersistedValue(el, persistedValue) {
+	var formType = $(el).prop("type").toLowerCase();
+
+	if (persistedValue === null || persistedValue === undefined || persistedValue === "") {
+		persistedValue = $(el).attr("data-persisted-value");
+	}
+	
+	//If a persisted value is set and is a SELECT element
+	if ((persistedValue) &&
+		((formType == "select-one") || (formType == "select-multiple"))) {
+		$(el).get(0).querySelectorAll("option[value='" + persistedValue.replace("'","\\'") + "']").forEach(option => {
+			option.selected = true;});
+		$(el).find("option[value='" + persistedValue.replace("'","\\'") + "']").attr("selected", true);		
+	}
+	else if ((formType == "radio") || (formType == "checkbox")) {
+		var isChecked = el.value == persistedValue;
+			
+		//Only set checked if true or if not a radio button since radio buttons will already have a default value
+		if (isChecked || (formType == "checkbox")) {
+			$(el).prop("checked", isChecked);
+		}
+	}
+}
 
 function ToggleCheckBoxes(formName, check) {
 	form = document.forms[formName];
@@ -76,19 +89,4 @@ function InitializeSiteDefault(siteDefault) {
             $("select[name='Site']").find("option[value != '" + siteDefault + "']").remove().val(siteDefault);
         });
     }
-}
-
-function ConvertTime(element) {
-	
-	$time = $(element).attr('data-iso8601');
-	if ($time != '') {
-		var utcTime = moment.utc($time);
-		var localTime = moment(utcTime).local();
-		var formatString = 'LLL';
-		if (localTime.hour() == 0 && localTime.minute() == 0 && localTime.second() == 0) {
-			formatString = 'LL';
-		}			
-		$(element).html(localTime.format(formatString));
-		
-	}	
 }
