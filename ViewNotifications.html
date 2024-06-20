@@ -6,14 +6,48 @@
 	<#INCLUDE filename="include_head.html">
 	<link href="<#ACTION action='2' type='41' value='RSSID' valueType='lookup' absolutePath='true' includeSessionID='false'>"
 		rel="alternate" type="application/rss+xml" title="ILLiad Notifications">
+		<style>
+		#notifications-table { visibility: hidden; }
+		
+        #loader {
+            border: 12px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 12px solid #444444;
+            width: 70px;
+            height: 70px;
+            animation: spin 1s linear infinite;
+        }
+ 
+        .center {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+ 
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 	<script>
-		window.onload = function() {
-			for (const tr of document.querySelectorAll("tr")) {
-			  if (tr.textContent.includes("[BC ILL]")) {
-				tr.remove();
-			  }
-			}
-		}
+		document.onreadystatechange = function () {
+            if (document.readyState !== "complete") {
+                document.querySelector("#notifications-table").style.visibility = "hidden";
+                document.querySelector("#loader").style.visibility = "visible";
+            } else {
+				for (const tr of document.querySelectorAll("tr")) {
+					if (tr.textContent.includes("[BC ILL]")) {
+						tr.remove();
+					}
+				}
+                document.querySelector("#loader").style.display = "none";
+                document.querySelector("#notifications-table").style.visibility = "visible";
+            }
+        };
 	</script>
 </head>
 
@@ -25,8 +59,8 @@
 		<main id="content" aria-label="Content">
 
 			<h2 class="page-header">Notifications</h2>
-
-			<div class="table">
+			<div id="loader" class="center"></div>
+			<div id ="notifications-table" class="table">
 				<#TABLE name="ViewNotifications" noDataAction="ShowMessageRow" noDataMessage="You have no notifications">
 			</div>
 
